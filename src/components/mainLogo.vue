@@ -1,7 +1,7 @@
 <template>
     <div class="content">
     <div id="app">
-      <vue-particles color="#dedede" class="back"></vue-particles>
+      <vue-particles color="#dedede" class="back" :particlesNumber="300"></vue-particles>
     </div>
     <div class="container">
       <div class="row posit">
