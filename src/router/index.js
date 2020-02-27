@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
 import TrainingList from '@/views/TrainingList.vue'
 import Training from '@/views/Training.vue'
+import Services from '@/views/Services.vue'
 
 Vue.use(VueRouter)
 
@@ -42,6 +43,11 @@ const routes = [
     path: '/training/:id',
     name: 'training',
     component: Training
+  },
+  {
+    path: '/services',
+    name: 'services',
+    component: Services
   }
 ]
 
