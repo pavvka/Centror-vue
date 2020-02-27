@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Navigation
+      class="posit"
       nav-brand="Centor"
       :nav-list="{
         'Главная': '/',
@@ -55,6 +56,11 @@ export default {
 
     margin: 2rem 0;
     min-height: 70vh;
+  }
+  .posit{
+    width: 99%;
+    position: absolute;
+    
   }
 }
 </style>

@@ -20,7 +20,7 @@ export default {
     mainLogo,
     mainAdvantages,
     mainParallax,
-    mainPrograms
+    mainPrograms,
   }
 }
 </script>

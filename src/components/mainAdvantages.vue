@@ -31,9 +31,6 @@ export default {
 </script>
 
 <style scoped>
-.ourAdvantages{
-    margin-top: 70px;
-}
 .advantages{
     height: 100px;
 }
