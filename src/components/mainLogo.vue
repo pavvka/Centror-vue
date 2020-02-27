@@ -1,7 +1,7 @@
 <template>
     <div class="content">
     <div id="app">
-      <vue-particles color="#dedede" class="back" :particlesNumber="300"></vue-particles>
+      <vue-particles style="width: 100%;" color="#dedede" class="back" :particlesNumber="150"></vue-particles>
     </div>
     <div class="container">
       <div class="row posit">
@@ -58,9 +58,7 @@ export default {
 
 /* MEDIA QWERTYS */
 @media (min-width: 1200px) {
-    .content{
-        max-width: 1390px !important;
-    }
+
 }
 @media (max-width: 1200px) {
 

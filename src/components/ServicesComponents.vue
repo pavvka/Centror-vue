@@ -1,5 +1,9 @@
 <template>
     <div>
+        <br>
+    <br>
+    <br>
+    <br>
         <input type="texts" placeholder="Поиск" v-model="searchQuery">
         <div v-for="(item,index) in filteredResources" :key="index">
             <a style="color:white;">{{item.First_Name}}</a>    
@@ -38,11 +42,11 @@ export default {
 
   computed: {
     filteredResources (){
-      if(this.searchQuery && this.searchQuery.length >= 0){
-      return this.Programs.filter((item)=>{
-        return item.First_Name.toLowerCase().match(this.searchQuery.toLowerCase());
-      })
-      }else{
+      if (this.searchQuery && this.searchQuery.length >= 0) {
+        return this.Programs.filter((item)=>{
+            return item.First_Name.toLowerCase().match(this.searchQuery.toLowerCase());
+        })
+      } else {
         return '';
       }
     }
