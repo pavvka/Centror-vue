@@ -1,5 +1,8 @@
 <template>
     <div class="content">
+        <div id="app">
+      <vue-particles color="#dedede"></vue-particles>
+    </div>
       <div class="row">
         <div class="col-sm-4 col-xs-1">
             <div class="main-block1 text-al">

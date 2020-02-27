@@ -3,7 +3,6 @@
 import type Router from '../index'
 import { assert } from './warn'
 import { getStateKey, setStateKey } from './state-key'
-import { extend } from './misc'
 
 const positionStore = Object.create(null)
 
@@ -15,10 +14,7 @@ export function setupScroll () {
   // location.host contains the port and location.hostname doesn't
   const protocolAndPath = window.location.protocol + '//' + window.location.host
   const absolutePath = window.location.href.replace(protocolAndPath, '')
-  // preserve existing history state as it could be overriden by the user
-  const stateCopy = extend({}, window.history.state)
-  stateCopy.key = getStateKey()
-  window.history.replaceState(stateCopy, '', absolutePath)
+  window.history.replaceState({ key: getStateKey() }, '', absolutePath)
   window.addEventListener('popstate', e => {
     saveScrollPosition()
     if (e.state && e.state.key) {
