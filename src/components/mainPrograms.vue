@@ -6,7 +6,7 @@
     <div class="card-carousel">
       <div class="card-carousel--overflow-container">
         <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-          <div class="card-carousel--card" v-for="(item,index) in items" :key="index"><img src="https://placehold.it/350x180"/>
+          <div class="card-carousel--card" v-for="(item,index) in items" :key="index"><img src="https://placehold.it/330x180"/>
             <div class="card-carousel--card--footer">
               <p class="program__title">{{ item.name }}</p>
               <p class="program__text">{{ item.text }}</p>
@@ -31,7 +31,7 @@ export default {
     return {
     currentOffset: 0,
       windowSize: 3,
-      paginationFactor: 390,
+      paginationFactor: 370,
       items: [
         {name: 'Kin Khao', text:"Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация"},
         {name: 'Jū-Ni', text:"Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация"},
@@ -87,7 +87,7 @@ export default {
 .card-carousel {
   display: flex;
   justify-content: center;
-  width: 1150px;
+  width: 97%;
 }
 .card-carousel--overflow-container {
   overflow: hidden;
@@ -128,7 +128,7 @@ export default {
 }
 .card-carousel-cards .card-carousel--card {
   margin: 0 20px;
-  width: 350px;
+  max-width: 330px;
   cursor: pointer;
   box-shadow: 0 4px 15px 0 rgba(40, 44, 53, 0.06), 0 2px 2px 0 rgba(40, 44, 53, 0.08);
   font-family: 'Montserrat', sans-serif;
@@ -208,6 +208,16 @@ export default {
   box-shadow: -0px -0px 0px #004977;
 }
 
+@media screen and (max-width:1200px) {
+  .card-carousel {
+    width: 700px;
+  }
+}
+@media screen and (max-width:830px) {
+  .card-carousel {
+    width: 350px;
+  }
+}
 
 
 </style>
