@@ -4,13 +4,12 @@
       class="posit"
       nav-brand="Centor"
       :nav-list="{
-        'Главная': '/',
-        'О Нас': '/about',
-        'Тренинги': '/training',
-        'Консалтинг': {
-          'О нас': '/about',
-          'Главная': '/'
-        }
+        'Услуги': '/training',
+        'Кейсы': '/about',
+        'Клуб Centror': '/about',
+        'Блог': '/training',
+        'О нас': '/about',
+        'Контакты': '/about'
       }" />
 
     <div class="content">
