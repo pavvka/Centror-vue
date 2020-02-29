@@ -47,8 +47,8 @@
       </ul>
         <div class="nav-item nav-link number">+99119998877</div>
         <div class="links">
-          <div class="instagram__container"><img class="instagram" src="../images/instagram.png" alt=""></div>
-          <div class="facebook__container"><img class="facebook" src="../images/facebook.png" alt=""></div>
+          <div class="instagram__container"><a href=""><img class="instagram" src="../images/instagram.png" alt=""></a></div>
+          <div class="facebook__container"><a href=""><img class="facebook" src="../images/facebook.png" alt=""></a></div>
         </div>
     </div>
   </nav>
