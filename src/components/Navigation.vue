@@ -45,6 +45,11 @@
           </template>
         </li>
       </ul>
+        <div class="nav-item nav-link number">+99119998877</div>
+        <div class="links">
+          <div class="instagram__container"><img class="instagram" src="../images/instagram.png" alt=""></div>
+          <div class="facebook__container"><img class="facebook" src="../images/facebook.png" alt=""></div>
+        </div>
     </div>
   </nav>
 </template>
@@ -86,6 +91,17 @@ export default {
   .dropdown-item:hover{
     background: rgba(255, 255, 255, 0);
     color: #fff;
+  }
+  .number{
+    margin-left: auto;
+    color: #fff;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  .instagram, .facebook{
+    width: 25px;
   }
 }
 </style>
