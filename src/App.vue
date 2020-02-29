@@ -4,13 +4,12 @@
       class="posit"
       nav-brand="Centor"
       :nav-list="{
-        'Главная': '/',
-        'О Нас': '/about',
-        'Тренинги': '/training',
-        'Консалтинг': {
-          'О нас': '/about',
-          'Главная': '/'
-        }
+        'Услуги': '/training',
+        'Кейсы': '/about',
+        'Клуб Centror': '/about',
+        'Блог': '/training',
+        'О нас': '/about',
+        'Контакты': '/about'
       }" />
 
     <div class="content">
@@ -58,9 +57,16 @@ export default {
     min-height: 70vh;
   }
   .posit{
-    width: 99%;
-    position: absolute;
-    
+    width: 100%;
+    margin: 0;
+  }
+  @media (min-width: 1200px) {
+    .posit{
+      width: 90%;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
 </style>
