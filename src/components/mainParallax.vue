@@ -7,14 +7,15 @@
         </div>
       </div>
       </div>
-        <parallax>
-           <img src="../images/parallax.jpg" alt="" class="bigImg">
-        </parallax>
+      <parallax :parallax="true" :speed-factor="0.3" breakpoint="(min-width: 80px)">
+        <h1>kek</h1>
+        <img src="../images/parallax.jpg" alt="" class="bigImg">
+      </parallax>
     </section>
 </template>
 
 <script>
-import Parallax from 'vue-parallaxy'
+import Parallax from "vue-parallaxy";
 export default {
   name: 'app',
   components: {
