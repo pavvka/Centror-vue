@@ -14,31 +14,28 @@
                                     <div class="firstPhrase">Есть вопросы?</div>
                                     <div class="secondPhrase">Мы поможем!</div>
                                     <h3 class="number">8 666 555 33 22</h3>
-                                    <a class="siteCall">Позвонить с сайта</a>
+                                    <a href="#" class="siteCall">Позвонить с сайта</a>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="contact__peace">
                                     <span class="icon">
-                                        <i class="person__icon fa fa-phone-square"></i>
+                                        <img class="Mail__icon" src="../images/MailIcon.png" alt="">
                                     </span>
-                                    <h2 class="title">Позвоните нам</h2>
-                                    <div class="firstPhrase">Есть вопросы?</div>
-                                    <div class="secondPhrase">Мы поможем!</div>
-                                    <h3 class="number">8 666 555 33 22</h3>
-                                    <a class="siteCall">Позвонить с сайта</a>
+                                    <h2 class="title">Напишите нам</h2>
+                                    <div class="firstPhrase">Идеи? Предложения?</div>
+                                    <div class="secondPhrase">Мы открыты для любых вопросов!</div>
+                                    <a href="#" class="siteCall">Написать на 24@centrot.ru</a>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="contact__peace">
                                     <span class="icon">
-                                        <i class="person__icon fa fa-phone-square"></i>
+                                        <img class="feedBack__icon" src="../images/FeedBackIcon.png" alt="">
                                     </span>
-                                    <h2 class="title">Позвоните нам</h2>
-                                    <div class="firstPhrase">Есть вопросы?</div>
-                                    <div class="secondPhrase">Мы поможем!</div>
-                                    <h3 class="number">8 666 555 33 22</h3>
-                                    <a class="siteCall">Позвонить с сайта</a>
+                                    <h2 class="title">Обратная связь</h2>
+                                    <div class="firstPhrase">Поделитесь мнением о нашей работе и помогите нам стать лучше!</div>
+                                    <a href="#"  class="siteCall">Написать на 24@centrot.ru</a>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +54,7 @@
 }
 .contact__peace{
     margin-top: 60px;
-    max-width: 350px;
+    max-width: 280px;
     text-align: center;
     color: #fff;
 }
@@ -77,5 +74,18 @@
 .number{
     margin-bottom: 30px;
     font-family: Teko;
+}
+.siteCall{
+    color: #fff;
+    text-decoration: underline;
+}
+.siteCall:hover{
+    color: #fff;
+}
+.feedBack__icon{
+    width: 55px;
+}
+.Mail__icon{
+    width: 60px;
 }
 </style>
