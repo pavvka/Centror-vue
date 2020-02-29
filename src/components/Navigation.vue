@@ -50,6 +50,11 @@
           <div class="instagram__container"><a href=""><img class="instagram" src="../images/instagram.png" alt=""></a></div>
           <div class="facebook__container"><a href=""><img class="facebook" src="../images/facebook.png" alt=""></a></div>
         </div>
+        <div class="languages">
+          <a href="#" class="russian">Ru</a>
+          <span> | </span>
+          <a href="#" class="english">En</a>
+        </div>
     </div>
   </nav>
 </template>
@@ -102,6 +107,19 @@ export default {
   }
   .instagram, .facebook{
     width: 25px;
+  }
+  .russian, .english{
+    color:#fff;
+    text-decoration: none;
+  }
+  .languages{
+    color: #fff;
+    margin-left: 10px;
+    font-family: Sedan;
+    font-size: 20px;
+  }
+  .russian, .english:hover{
+      color: #fff;
   }
 }
 </style>
