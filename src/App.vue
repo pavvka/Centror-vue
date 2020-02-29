@@ -9,7 +9,7 @@
         'Клуб Centror': '/about',
         'Блог': '/training',
         'О нас': '/about',
-        'Контакты': '/about'
+        'Контакты': '/contacts'
       }" />
 
     <div class="content">
