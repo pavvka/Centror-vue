@@ -72,13 +72,19 @@ export default {
 <style lang="scss" scoped>
 .navbar {
   background: rgba(97, 139, 170, 0.78);
+  font-size: 18px;
   margin: 8px;
   border-radius: 10px;
   padding-top: 0;
   padding-bottom: 0;
+  margin-left: 30px;
+  margin-right: 30px;
 
   .navbar-brand {
-    font-size: 30px;
+    font-size: 35px;
+    font-family: Sedan;
+    display: inline-block;
+    margin-bottom: 0;
   }
 
   .dropdown-menu{
@@ -103,7 +109,6 @@ export default {
     font-family: Montserrat;
     font-style: normal;
     font-weight: 300;
-    font-size: 20px;
   }
   .instagram, .facebook{
     width: 25px;
@@ -116,10 +121,25 @@ export default {
     color: #fff;
     margin-left: 10px;
     font-family: Sedan;
-    font-size: 20px;
   }
   .russian, .english:hover{
       color: #fff;
+  }
+  @media (min-width: 991px) {
+    .navbar-brand {
+      margin-bottom: 8px;
+    }
+  }
+  @media (max-width: 991px) {
+    .languages{
+      margin: 0;
+    }
+    .number{
+      padding: 0;
+    }
+    .instagram__container, .facebook__container{
+      display: inline;
+    }
   }
 }
 </style>
