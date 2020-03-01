@@ -10,7 +10,13 @@
             <h3 class="text-center">{{training.Program_Name}}</h3>
           </div>
           <div class="col col-12 col-md-6">
-            <p class="text-center">{{training.Program_Describe}}</p>
+            <p class="text-center">{{training.Program_Describe.slice(0, 150)}}...</p>
+          </div>
+          <div class="col col-12 col-md-6">
+            <p class="text-center">{{training.Price}}рублей</p>
+          </div>
+          <div class="col col-12 col-md-6">
+            <p class="text-center"> {{training.lectors.Last_Name}} {{training.lectors.First_Name}}</p>
           </div>
         </div>
         <div class="row">
