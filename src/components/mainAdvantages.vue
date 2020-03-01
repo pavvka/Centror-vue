@@ -10,14 +10,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="advantages">
-                    <div class="row">
-                      <div class="col-xs-2">
-                        <span class="advantages__icon"><i class="fa fa-thumbs-up"></i></span>
-                      </div>
-                      <div class="col-xs-10">
-                        <span class="advantages__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</span>
-                      </div>
-                    </div>
+                    <span class="advantages__icon"><i class="fa fa-thumbs-up"></i></span>
+                    <span class="advantages__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</span>
                     </div>
                 </div>
             </div>
