@@ -31,10 +31,36 @@
             <div class="order col col-12">
               <h5>Стоимость программы</h5>
               <h5>140 000р.</h5>
-              <button class="btn btn-light">
+              <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-light">
                 Записаться на обучение
               </button>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Контактная информация</h5>
+          </div>
+            <div class="modal-body">
+              <div class="input-group" style="margin-top:20px;">
+                <input type="text" class="form-control" style="margin-right:20px">
+                <input type="text" class="form-control">
+            </div>
+            <div class="input-group" style="margin-top:20px;">
+                <input type="text" class="form-control" style="margin-right:20px">
+                <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="form-group">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <button type="button" class="btn btn-primary">Перейти к оплате</button>
           </div>
         </div>
       </div>
