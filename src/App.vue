@@ -2,6 +2,8 @@
   <div id="app">
     <Navigation
       class="posit"
+      :isActive="isActive"
+      v-bind:class="{ active: isActive }"
       nav-brand="Centor"
       :nav-list="{
         'Услуги': '/training',
@@ -29,6 +31,11 @@ export default {
   components: {
     Navigation,
     Footer
+  },
+  data(){
+    return{
+      isActive: false
+    }
   }
 }
 </script>
@@ -57,16 +64,15 @@ export default {
     min-height: 70vh;
   }
   .posit{
-    width: 100%;
     margin: 0;
+    width: 100%;
   }
-  @media (min-width: 1200px) {
-    .posit{
-      width: 90%;
-      position: relative;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
+  // @media (min-width: 1200px) {
+  //   .posit{
+  //     position: absolute;
+  //     width: 90%;
+  //     left: 3%;
+  //   }
+  // }
 }
 </style>
