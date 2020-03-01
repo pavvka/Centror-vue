@@ -4,14 +4,20 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="advantages">
-                    <div class="advantages__icon"></div>
-                    <p class="advantages__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                    <span class="advantages__icon"><i class="fa fa-thumbs-up"></i></span>
+                    <span class="advantages__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</span>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="advantages">
-                    <div class="advantages__icon">{{item.message}}</div>
-                    <p class="advantages__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                    <div class="row">
+                      <div class="col-xs-2">
+                        <span class="advantages__icon"><i class="fa fa-thumbs-up"></i></span>
+                      </div>
+                      <div class="col-xs-10">
+                        <span class="advantages__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</span>
+                      </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -31,24 +37,38 @@ export default {
 </script>
 
 <style scoped>
+
 .advantages{
     height: 100px;
 }
 .advantages__text{
     color: #fff;
     font-family: 'Montserrat', sans-serif;
-    max-width: 400px;
-    display: inline-block;
     text-align: left;
     vertical-align: text-bottom;
 }
 .advantages__icon{
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    background-color: grey;
-    display: inline-block;
-    margin-right: 20px;
+    color: #fff;
+    font-size: 50px;
 }
-
+ @media (max-width: 991px) {
+    .posit{
+      top: 100px;
+    }
+  }
+  @media (max-width: 900px) {
+    .ourAdvantages{
+      margin-top: 30%;
+    }
+  }
+  @media (max-width: 600px) {
+    .ourAdvantages{
+      margin-top: 60%;
+    }
+  }
+  @media (max-width: 460px) {
+    .ourAdvantages{
+      margin-top: 400px;
+    }
+  }
 </style>
