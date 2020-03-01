@@ -4,12 +4,20 @@
       <input type="texts" placeholder="Поиск" v-model="searchQuery">
       <div v-for="(training, index) in filteredResources"
         :key="index"
-        class="item container">
-        <div class="row">
-          <div class="col col-12 col-md-6">
-            <h3 class="text-center">{{training.Program_Name}}</h3>
-          </div>
-          <div class="col col-12 col-md-6">
+        class="item">
+        <div class="row marg">
+          <router-link class="trainingLink" :to="`/training/${training.id}`">
+            <div class="training">
+            <div class="col-lg-6">
+              
+                <h3 class="training__title">{{training.Program_Name}}</h3>
+                <p class="training__text">{{training.Program_Describe.slice(0, 150)}}...</p>
+                <p class="training__price">Стоимость программы: {{training.Price}} рублей</p>
+
+              </div>
+            </div>
+          </router-link>
+          <!-- <div class="col col-12 col-md-6">
             <p class="text-center">{{training.Program_Describe.slice(0, 150)}}...</p>
           </div>
           <div class="col col-12 col-md-6">
@@ -17,12 +25,7 @@
           </div>
           <div class="col col-12 col-md-6">
             <p class="text-center"> {{training.lectors.Last_Name}} {{training.lectors.First_Name}}</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col justify-content-md-end">
-            <router-link :to="`/training/${training.id}`">Подробнее</router-link>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -70,42 +73,25 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.item {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  margin-bottom: 2rem;
-  min-height: 200px;
-  border-radius: 15px;
-  background-color: #435A6E;
-  color: whitesmoke;
-
-  a, a:active {
-    text-decoration: none;
-    color: inherit;
-    &:hover {
-      color: gray;
-    }
-  }
-
-  p, h3 {
-    padding: 0px;
-    margin: 0px;
-  }
-
-  .row {
-    &:nth-child(1) {
-      flex: 1 1 auto;
-    }
-
-    .col {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+<style scoped>
+.training{
+  color: #fff;
+  text-align: left;
+  background: #435A6E;
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+}
+.trainingLink:hover{
+  text-decoration: none;
+}
+.training__title{
+  font-size: 25px;
+}
+.marg{
+  margin-bottom: 30px;
 }
 </style>
