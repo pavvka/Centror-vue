@@ -195,7 +195,6 @@ export default {
 	width:100%;
 	height:auto;
   min-height: 200px;
-	border-bottom:5px #323233 solid;
 	background:#fff;
 	text-align:center;
 	border-radius:10px;
@@ -261,7 +260,6 @@ export default {
 
 .our-team-main:hover
 {
-	border-color:#777;
 	transition:0.5s;
 }
 .memberColor{
