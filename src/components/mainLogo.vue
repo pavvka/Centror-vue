@@ -24,7 +24,16 @@
     <div class="container">
       <div class="row posit">
           <div class="col-lg-1"></div>
-          <div class="col-sm-4"><img alt="Vue logo" src="../assets/logo.png"></div>
+          <div class="col-sm-4">
+            <AnalogClock
+              backgroundImage="https://i.ibb.co/LhzMQ3j/Asset-2-1.png"
+              borderImage="https://online-fotoshop.ru/wp-content/uploads/bfi_thumb/dummy-transparent-o62bcwfxu7zofs36kb0sbh4wom52bbxxszhrx8zw4y.png"
+              borderWidth="8"
+              scaleType="none"
+              handType="line"
+              scaleColor="transparent"
+            />
+          </div>
           <div class="col-sm-7">
               <p class="mainText">
                 TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
@@ -47,8 +56,12 @@
 </template>
 
 <script>
+import {AnalogClock} from 'vue-analog-clock'
 export default {
   name: 'app',
+  components: {
+    AnalogClock
+  },
   data () {
     return {
 
