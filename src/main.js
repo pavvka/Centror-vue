@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import VueParticles from 'vue-particles'
-import vuetify from 'vuetify'
+import vuetify from '@/plugins/vuetify'
 
 
 Vue.use(VueParticles)

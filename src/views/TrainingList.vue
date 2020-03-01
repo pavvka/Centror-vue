@@ -1,15 +1,16 @@
 <template>
   <div class="training-list">
     <div class="container">
-      <div v-for="(training, index) in trainingList"
+      <input type="texts" placeholder="Поиск" v-model="searchQuery">
+      <div v-for="(training, index) in filteredResources"
         :key="index"
         class="item container">
         <div class="row">
           <div class="col col-12 col-md-6">
-            <h3 class="text-center">{{training.title}}</h3>
+            <h3 class="text-center">{{training.Program_Name}}</h3>
           </div>
           <div class="col col-12 col-md-6">
-            <p class="text-center">{{training.body}}</p>
+            <p class="text-center">{{training.Program_Describe}}</p>
           </div>
         </div>
         <div class="row">
@@ -23,21 +24,43 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  name: 'training-list',
-  data () {
+  name: 'app',
+    data(){
     return {
-      trainingList: []
+      searchQuery:'',
+      Programs: '',
+      url: {
+          ProgramApiLink: this.$store.getters.takeProgramm,
+          SubcategoriesApilink: this.$store.getters
+      },
     }
   },
-  async created () {
-    const respones = await fetch('http://jsonplaceholder.typicode.com/posts?_limit=5')
-    const data = await respones.json()
-
-    this.trainingList = data
+  
+  methods: {
+    getHashtags(){
+        axios.get(this.url.ProgramApiLink).then((response) => {
+            this.Programs = response.data;
+        });
+    },
+    
   },
-  mounted () {
+    beforeMount(){
+      this.getHashtags()
+ },
+  computed: {
+    filteredResources (){
+      if (this.searchQuery && this.searchQuery.length >= 0) {
+        return this.Programs.filter((item)=>{
+            return item.Program_Name.toLowerCase().match(this.searchQuery.toLowerCase());
+        })
+      } else {
+        return this.Programs;
+      }
+    }
   }
+ 
 }
 </script>
 

@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     api : {
       // refact this
-      programlink: 'http://localhost:1337/lecturers',
+      programlink: 'http://centror.ru:1337/programs',
+      subcategorieslink: 'http://centror.ru:1337/subcategories',
     }
   },
   mutations: {
@@ -23,6 +24,9 @@ export default new Vuex.Store({
   getters: {
     takeProgramm(state){
       return state.api.programlink
+    },
+    takeSubcategories(state){
+      return state.api.subcategorieslink
     }
   },
   modules: {
