@@ -1,19 +1,34 @@
 <template>
     <div class="content">
-    <div id="app">
-      <vue-particles style="width: 100%;" color="#dedede" class="back" :particlesNumber="150"></vue-particles>
+    <div id="kek">
+      <vue-particles 
+      style="width: 100%;" 
+      color="#dedede" 
+      class="back" 
+      :particlesNumber="150"
+      :particleOpacity="0.7"
+      shapeType="circle"
+      :particleSize="4"
+      linesColor="#dedede"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.4"
+      :linesDistance="150"
+      :moveSpeed="3"
+      :hoverEffect="true"
+      hoverMode="grab"
+      :clickEffect="true"
+      clickMode="push"
+      ></vue-particles>
     </div>
     <div class="container">
       <div class="row posit">
           <div class="col-lg-1"></div>
-          <div class="col-lg-4"><img alt="Vue logo" src="../assets/logo.png"></div>
-          <div class="col-lg-7">
+          <div class="col-sm-4"><img alt="Vue logo" src="../assets/logo.png"></div>
+          <div class="col-sm-7">
               <p class="mainText">
                 TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
                 TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-                TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-                TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-                 TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
                 TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
               </p>
           </div>
@@ -61,17 +76,14 @@ export default {
 
 }
 @media (max-width: 1200px) {
-
-}
-@media (max-width: 991px) {
-    #app{
-        display: none;
-
-    }
     .posit{
-        position: static;
-        margin-top: 30px;
+      top: 300px;
     }
 }
+ @media (max-width: 991px) {
+    .posit{
+      top: 100px;
+    }
+  }
 
 </style>
