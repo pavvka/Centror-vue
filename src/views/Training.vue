@@ -3,29 +3,28 @@
     <div class="container">
       <div class="row">
         <div class="col col-12">
-          <h1>Тренинг №1</h1>
+          <h1>{{training.Program_Name}}</h1>
           <h3>Никогда не поздно научиться. Сделай это сегодня.</h3>
         </div>
       </div>
       <div class="row">
         <div class="description col col-12 col-md-6">
-          <h4 class="text-center">Четотам программа</h4>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, fugit. Itaque facilis sequi odit facere ducimus. Neque delectus ullam vitae eos, nostrum consectetur provident dignissimos exercitationem maxime, dolorum ex! Dolorem.</p>
+          <p>{{training.Program_Describe}}</p>
         </div>
-        <div class="description col col-12 col-md-6">
+        <div 
+          v-for="(trainingTeacher, index) in training.lectors"
+          :key="index"
+          class="description col col-12 col-md-6">
           <h4 class="text-center">Преподавательский состав</h4>
           <div class="row teachers">
             <div class="teacher col col-12">
-              <div class="avatar"></div>
-              <h4>Петров Иван Говнин</h4>
-            </div>
-            <div class="teacher col col-12">
-              <div class="avatar"></div>
-              <h4>Петров Иван Говнин</h4>
-            </div>
-            <div class="teacher col col-12">
-              <div class="avatar"></div>
-              <h4>Петров Иван Говнsdfsdин</h4>
+              <div class="avatar">
+                <img
+                    class="avatar"
+                    :src="host + trainingTeacher.Photo.url"
+                >
+              </div>
+              <h4>{{trainingTeacher.First_Name}} {{trainingTeacher.Last_Name}}</h4>
             </div>
           </div>
           <div class="row">
@@ -48,12 +47,16 @@ export default {
   name: 'training',
   data () {
     return {
-      training: {}
+      url: {
+          ProgramApiLink: this.$store.getters.takeProgramm,
+          SubcategoriesApilink: this.$store.getters
+      },
+      training: {},
+      host: this.$store.getters.takeHost,
     }
   },
   async created () {
-    const id = this.$route.params.id
-    const respones = await fetch(`http://jsonplaceholder.typicode.com/posts/${id}`)
+    const respones = await fetch(this.url.ProgramApiLink + '/' + this.$route.params.id)
     const data = await respones.json()
 
     this.training = data
