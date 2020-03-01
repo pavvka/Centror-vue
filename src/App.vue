@@ -57,16 +57,16 @@ export default {
     min-height: 70vh;
   }
   .posit{
-    width: 100%;
+    position: absolute;
     margin: 0;
+    width: 100%;
   }
-  @media (min-width: 1200px) {
-    .posit{
-      width: 90%;
-      position: relative;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
+  // @media (min-width: 1200px) {
+  //   .posit{
+  //     position: absolute;
+  //     width: 90%;
+  //     left: 3%;
+  //   }
+  // }
 }
 </style>
