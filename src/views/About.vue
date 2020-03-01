@@ -66,19 +66,32 @@
               </div>
               
             </div>
-            <div class="row">
-              <div class="col-lg-4" v-for="(member,index) in 6" :key="index">
-                <div class="member">
-                    <div class="member__img">
-                      <img src="../images/member2.png" alt="" class="member__pict">
-                    </div>
-                    <h1 class="member__fio">ФИО</h1>
-                    <p class="member__status">
-                      Должность
-                    </p>
+          <div class="row">
+            <div class="col-lg-4" v-for="(member,index) in 6" :key="index">
+              <div class="our-team-main memberColor">
+              
+                <div class="team-front memberColor">
+                  <div class="img__block">
+                    <img src="../images/member2.png" class="img-fluid" />
+                  </div>
+                  <h3>ФИО</h3>
+                  <p class="member__status">
+                    Должность
+                  </p>
                 </div>
+                
+                <div class="team-back memberColor">
+                  <span>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
+                  natoque penatibus et magnis dis parturient montes,
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
+                  natoque.
+                  </span>
+                </div>
+              
               </div>
             </div>
+          </div>
         </div>
     </section>
   </div>
@@ -176,25 +189,84 @@ export default {
 .teamMembers__title{
   color: #fff;
 }
-.member{
-  max-width: 350px;
-  color: #fff;
-  border-radius: 10px;
-  background: #618BAA;
-  text-align: center;
+
+.our-team-main
+{
+	width:100%;
+	height:auto;
   min-height: 200px;
-  padding: 10px;
-  margin-bottom: 30px;
+	border-bottom:5px #323233 solid;
+	background:#fff;
+	text-align:center;
+	border-radius:10px;
+	overflow:hidden;
+	position:relative;
+	transition:0.5s;
+	margin-bottom:28px;
+  text-align: center;
 }
-.member__pict{
-  border-radius: 170px;
+
+
+.our-team-main img
+{
+	border-radius: 170px;
   width: 130px;
+	margin-bottom:20px;
 }
-.member__fio{
+
+.our-team-main h3
+{
   display: inline-block;
+	font-size:30px;
   width: 200px;
   border-bottom: 1px #fff solid;
   padding-bottom: 8px;
+}
+
+.our-team-main p
+{
+	margin-bottom:0;
+}
+
+.team-back
+{
+	width:100%;
+	height:auto;
+	position:absolute;
+	top:0;
+	left:0;
+	padding:5px 15px 0 15px;
+	text-align:left;
+	background:#fff;
+	
+}
+
+.team-front
+{
+	width:100%;
+	height:auto;
+	position:relative;
+	z-index:10;
+	background:#fff;
+	padding:15px;
+	bottom:0px;
+	transition: all 0.5s ease;
+}
+
+.our-team-main:hover .team-front
+{
+	bottom:-250px;
+	transition: all 0.5s ease;
+}
+
+.our-team-main:hover
+{
+	border-color:#777;
+	transition:0.5s;
+}
+.memberColor{
+  color: #fff;
+  background: #618BAA;
 }
 </style>
 
