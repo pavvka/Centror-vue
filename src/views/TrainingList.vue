@@ -1,7 +1,13 @@
 <template>
   <div class="training-list">
     <div class="container">
-      <input type="texts" placeholder="Поиск" v-model="searchQuery">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="search__block">
+            <input class="search" type="texts" placeholder="Поиск по названию или преподователю..." v-model="searchQuery">
+          </div>
+        </div>
+      </div>
       <div v-for="(training, index) in filteredResources"
         :key="index"
         class="item">
@@ -86,6 +92,7 @@ export default {
   font-weight: normal;
 }
 .trainingLink:hover{
+
   text-decoration: none;
 }
 .training__title{
@@ -93,5 +100,19 @@ export default {
 }
 .marg{
   margin-bottom: 30px;
+}
+.search__block{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.search{
+  border: 1px solid #618BAA;
+  background: rgba(0, 0, 0, 0);
+  width: 500px;
+  border-radius: 8px;
+  padding-left: 5px;
+  font-family: Montserrat;
+  color: #CCCCCC;
 }
 </style>
