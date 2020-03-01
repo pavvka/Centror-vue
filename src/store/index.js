@@ -10,6 +10,7 @@ export default new Vuex.Store({
       hosturl:'http://centror.ru:1337',
       programlink: 'http://centror.ru:1337/programs',
       subcategorieslink: 'http://centror.ru:1337/subcategories',
+      aboutlink: 'http://centror.ru:1337/info-blocks',
     }
   },
   mutations: {
@@ -31,6 +32,9 @@ export default new Vuex.Store({
     },
     takeHost(state){
       return state.api.hosturl
+    },
+    takeAboutPage(state){
+      return state.api.aboutlink
     }
   },
   modules: {
