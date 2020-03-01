@@ -1,19 +1,16 @@
 <template>
     <div class="content">
-    <div id="app">
+    <div id="kek">
       <vue-particles style="width: 100%;" color="#dedede" class="back" :particlesNumber="150"></vue-particles>
     </div>
     <div class="container">
       <div class="row posit">
           <div class="col-lg-1"></div>
-          <div class="col-lg-4"><img alt="Vue logo" src="../assets/logo.png"></div>
-          <div class="col-lg-7">
+          <div class="col-sm-4"><img alt="Vue logo" src="../assets/logo.png"></div>
+          <div class="col-sm-7">
               <p class="mainText">
                 TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
                 TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-                TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-                TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-                 TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
                 TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
               </p>
           </div>
@@ -61,17 +58,10 @@ export default {
 
 }
 @media (max-width: 1200px) {
-
-}
-@media (max-width: 991px) {
-    #app{
-        display: none;
-
-    }
     .posit{
-        position: static;
-        margin-top: 30px;
+      top: 300px;
     }
+
 }
 
 </style>
