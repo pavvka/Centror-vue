@@ -1,7 +1,25 @@
 <template>
     <div class="content">
     <div id="kek">
-      <vue-particles style="width: 100%;" color="#dedede" class="back" :particlesNumber="150"></vue-particles>
+      <vue-particles 
+      style="width: 100%;" 
+      color="#dedede" 
+      class="back" 
+      :particlesNumber="150"
+      :particleOpacity="0.7"
+      shapeType="circle"
+      :particleSize="4"
+      linesColor="#dedede"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.4"
+      :linesDistance="150"
+      :moveSpeed="3"
+      :hoverEffect="true"
+      hoverMode="grab"
+      :clickEffect="true"
+      clickMode="push"
+      ></vue-particles>
     </div>
     <div class="container">
       <div class="row posit">
@@ -61,7 +79,11 @@ export default {
     .posit{
       top: 300px;
     }
-
 }
+ @media (max-width: 991px) {
+    .posit{
+      top: 100px;
+    }
+  }
 
 </style>
