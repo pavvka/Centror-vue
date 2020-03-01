@@ -24,15 +24,17 @@
     <div class="container">
       <div class="row posit">
           <div class="col-lg-1"></div>
-          <div class="col-sm-4">
-            <AnalogClock
-              backgroundImage="https://i.ibb.co/LhzMQ3j/Asset-2-1.png"
-              borderImage="https://online-fotoshop.ru/wp-content/uploads/bfi_thumb/dummy-transparent-o62bcwfxu7zofs36kb0sbh4wom52bbxxszhrx8zw4y.png"
-              borderWidth="8"
-              scaleType="none"
-              handType="line"
-              scaleColor="transparent"
-            />
+          <div class="col-lg-4">
+            <div class="clock">
+              <AnalogClock
+                backgroundImage="https://i.ibb.co/LhzMQ3j/Asset-2-1.png"
+                borderImage="https://online-fotoshop.ru/wp-content/uploads/bfi_thumb/dummy-transparent-o62bcwfxu7zofs36kb0sbh4wom52bbxxszhrx8zw4y.png"
+                scaleType="none"
+                handType="line"
+                scaleColor="transparent"
+                class="myClock"
+              />
+            </div>
           </div>
           <div class="col-sm-7">
               <p class="mainText">
@@ -84,9 +86,13 @@ export default {
 }
 
 
-/* MEDIA QWERTYS */
-@media (min-width: 1200px) {
 
+/* MEDIA QWERTYS */
+@media (min-width: 991px) {
+.myClock{
+  position: relative;
+  top: -100px;
+}
 }
 @media (max-width: 1200px) {
     .posit{
