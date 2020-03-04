@@ -5,6 +5,7 @@ import Home from '@/views/Home.vue'
 import TrainingList from '@/views/TrainingList.vue'
 import Training from '@/views/Training.vue'
 import Contacts from '@/views/Contacts.vue'
+import Cases from '@/views/Cases.vue'
 
 Vue.use(VueRouter)
 
@@ -48,6 +49,11 @@ const routes = [
     path: '/contacts',
     name: 'contacts',
     component: Contacts
+  },
+  {
+    path: '/cases',
+    name: 'cases',
+    component: Cases
   }
 ]
 
