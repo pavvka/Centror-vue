@@ -5,7 +5,7 @@
                 <div class="col-lg-12">
                     <div class="contacts__block">
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-md-4">
                                 <div class="contact__peace">
                                     <span class="icon">
                                         <i class="person__icon fa fa-phone-square"></i>
@@ -17,7 +17,7 @@
                                     <a href="#" class="siteCall">Позвонить с сайта</a>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-md-4">
                                 <div class="contact__peace">
                                     <span class="icon">
                                         <img class="Mail__icon" src="../images/MailIcon.png" alt="">
@@ -28,7 +28,7 @@
                                     <a href="#" class="siteCall">Написать на 24@centrot.ru</a>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-md-4">
                                 <div class="contact__peace">
                                     <span class="icon">
                                         <img class="feedBack__icon" src="../images/FeedBackIcon.png" alt="">
@@ -38,6 +38,21 @@
                                     <a href="#"  class="siteCall">Написать на 24@centrot.ru</a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="bottomContacts">
+                        <h2 class="bottomContacts__title">
+                            Контакты для сотрудничества
+                        </h2>
+                        <div class="bottomContacts__email">
+                            Email: collaboration@centror.ru
+                        </div>
+                        <div class="bottomContacts__number">
+                            Тел.: 8 666 222-33-11
                         </div>
                     </div>
                 </div>
@@ -87,5 +102,30 @@
 }
 .Mail__icon{
     width: 60px;
+}
+/* bottom contacts */
+.bottomContacts{
+    color: #fff;
+}
+.bottomContacts__title{
+    font-size: 25px;
+    margin-top: 30px;
+}
+.bottomContacts__email, .bottomContacts__number{
+    font-family: Teko;
+    margin-left: 30px;
+    font-size: 23px;
+}
+@media (max-width: 991px) {
+    .contact__peace{
+      margin-right: 20px;
+    }
+}
+@media (max-width: 766px) {
+    .contact__peace{
+      margin-right:auto;
+      margin-left: auto;
+      margin-bottom: 20px;
+    }
 }
 </style>
