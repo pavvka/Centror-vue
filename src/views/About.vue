@@ -122,7 +122,7 @@ export default {
     font-size: 90px;
 }
 .mainTeam__text{
-    width: 400px;
+    max-width: 500px;
     font-size: 20px;
     margin-top: 20px;
     text-align: left;

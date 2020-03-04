@@ -3,18 +3,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-1"></div>
-        <div class="col-lg-7">
+        <div class="col-lg-7 centered">
           <div class="footerList">
             <div class="row">
               <div class="col-lg-4">
                 <ul class="footerList">
                   <li class="footerList__item footerList__title">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
-                  <li class="footerList__item">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
-                  <li class="footerList__item">
                     <a href="#" class="footerList__item__link">Lorem Ipsum</a>
                   </li>
                   <li class="footerList__item">
@@ -40,12 +34,6 @@
                   <li class="footerList__item">
                     <a href="#" class="footerList__item__link">Lorem Ipsum</a>
                   </li>
-                  <li class="footerList__item">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
-                  <li class="footerList__item">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
                 </ul>
               </div>
             </div>
@@ -55,12 +43,6 @@
               <div class="col-lg-4">
                 <ul class="footerList">
                   <li class="footerList__item footerList__title">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
-                  <li class="footerList__item">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
-                  <li class="footerList__item">
                     <a href="#" class="footerList__item__link">Lorem Ipsum</a>
                   </li>
                   <li class="footerList__item">
@@ -78,26 +60,26 @@
           <div class="footerContacts">
             <h3 class="footerContacts__header">Свяжитесь с нами:</h3>
             <div class="footerContacts__links">
-              <span class>
                 <a href="#" class="footerContacts__links__item">
-                  <i class="fa fa-facebook-square"></i>
+                  <div class="iconContainer">
+                    <img src="../images/facebook.png" class="footerIcon" alt="">
+                  </div>
                 </a>
-              </span>
-              <span class>
                 <a href="#" class="footerContacts__links__item">
-                  <i class="fa fa-facebook-square"></i>
+                  <div class="iconContainer">
+                    <img src="../images/instagram.png" class="footerIcon" alt="">
+                  </div>
                 </a>
-              </span>
-              <span class>
                 <a href="#" class="footerContacts__links__item">
-                  <i class="fa fa-facebook-square"></i>
+                  <div class="iconContainer">
+                    <img src="../images/MailIcon2.png" class="footerIconLetter" alt="">
+                  </div>
                 </a>
-              </span>
-              <span class>
                 <a href="#" class="footerContacts__links__item">
-                  <i class="fa fa-facebook-square"></i>
+                  <div class="iconContainer">
+                    <img src="../images/facebook.png" class="footerIcon" alt="">
+                  </div>
                 </a>
-              </span>
             </div>
             <div class="footerContacts__mail">abcdefg@centror.com</div>
           </div>
@@ -148,14 +130,31 @@ export default {
   margin-bottom: 10px;
 }
 /* footer contacts */
+.footerContacts{
+  text-align: center;
+}
 .footerContacts__header {
   color: #fff;
   font-size: 18px;
 }
-.footerContacts__links__item {
-  font-size: 40px;
-  color: #3b5598;
+.iconContainer{
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  display: inline-block;
+  vertical-align: middle;
   margin-right: 20px;
+}
+.footerIcon{
+  width: 40px;
+  display: inline-block;
+}
+.footerIconLetter{
+  width: 35px;
+}
+.footerContacts__links__item{
+  margin-left: 15px;
 }
 .footerContacts__links__item:hover {
   color: #3b5598;
@@ -163,5 +162,15 @@ export default {
 }
 .footerContacts__mail {
   color: #fff;
+}
+@media (max-width: 991px) {
+    .centered{
+      text-align: center;
+    }
+}
+@media (max-width: 403px) {
+  .footerList{
+    padding: 0;
+  }
 }
 </style>
