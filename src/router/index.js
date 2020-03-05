@@ -6,6 +6,7 @@ import TrainingList from '@/views/TrainingList.vue'
 import Training from '@/views/Training.vue'
 import Contacts from '@/views/Contacts.vue'
 import Cases from '@/views/Cases.vue'
+import Club from '@/views/Club.vue'
 
 Vue.use(VueRouter)
 
@@ -54,6 +55,11 @@ const routes = [
     path: '/cases',
     name: 'cases',
     component: Cases
+  },
+  {
+    path: '/club',
+    name: 'club',
+    component: Club
   }
 ]
 

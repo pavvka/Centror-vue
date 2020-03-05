@@ -4,6 +4,12 @@ import router from './router'
 import store from './store'
 import VueParticles from 'vue-particles'
 import vuetify from '@/plugins/vuetify'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
+// require styles
+import 'swiper/dist/css/swiper.css'
+
+Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
 
 Vue.use(VueParticles)
