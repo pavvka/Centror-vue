@@ -147,11 +147,14 @@ export default {
   margin-right: 20px;
 }
 .footerIcon{
-  width: 40px;
+  width: 35px;
+  padding-top: 2px;
+  vertical-align: middle;
   display: inline-block;
 }
 .footerIconLetter{
-  width: 35px;
+  width: 26px;
+  padding-top: 12px;
 }
 .footerContacts__links__item{
   margin-left: 15px;
