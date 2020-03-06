@@ -45,6 +45,7 @@ export default {
     data(){
     return {
       searchQuery:'',
+      subcategorySelected: '',
       Programs: '',
       url: {
           ProgramApiLink: this.$store.getters.takeProgramm,
@@ -68,7 +69,16 @@ export default {
     filteredResources (){
       if (this.searchQuery && this.searchQuery.length >= 0) {
         return this.Programs.filter((item)=>{
-            return item.Program_Name.toLowerCase().match(this.searchQuery.toLowerCase());
+            return item.Program_Name.toLowerCase().match(this.searchQuery.toLowerCase())          ||
+
+                   // fix that
+                   item.lectors[0].First_Name.toLowerCase().match(this.searchQuery.toLowerCase()) ||
+                   item.lectors[0].Last_Name.toLowerCase().match(this.searchQuery.toLowerCase())  ||
+                   item.lectors[0].Middle_Name.toLowerCase().match(this.searchQuery.toLowerCase());
+
+                    // item.lectors.forEach(
+                    //     element => element.First_Name.toLowerCase().match(this.searchQuery.toLowerCase())
+                    //   );
         })
       } else {
         return this.Programs;

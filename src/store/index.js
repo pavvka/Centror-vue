@@ -7,9 +7,9 @@ export default new Vuex.Store({
   state: {
     api : {
       // refact this
-      hosturl:'http://centror.ru:1337',
-      programlink: 'http://centror.ru:1337/programs',
-      subcategorieslink: 'http://centror.ru:1337/subcategories',
+      hosturl:'http://localhost:1337',
+      programlink: 'http://localhost:1337/programs',
+      subcategorieslink: 'http://localhost:1337/subcategories',
     }
   },
   mutations: {
