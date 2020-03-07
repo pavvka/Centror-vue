@@ -70,50 +70,26 @@ export default {
   computed: {
     filteredResources (){
       if (this.searchQuery && this.searchQuery.length >= 0) {
+        //Program names finding
         var result = this.Programs.filter((item,i)=>{
-            return item.Program_Name.toLowerCase().match(this.searchQuery.toLowerCase())
-            
-            for (let j = 0; j < this.Programs[i].lectors.length; j++) {
-              if(this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase()) != null){
-                  console.log(this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase()))
-                  return this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase())
-              }
-            }
-                   // fix that
-                  //  item.lectors[0].First_Name.toLowerCase().match(this.searchQuery.toLowerCase()) ||
-                  //  item.lectors[0].Last_Name.toLowerCase().match(this.searchQuery.toLowerCase())  ||
-                  //  item.lectors[0].Middle_Name.toLowerCase().match(this.searchQuery.toLowerCase());
-                    // return item.filter((lector,i=0)=>{
-                    //     return lector.First_Name.toLowerCase().match(this.searchQuery.toLowerCase())
-                    // })
-
-
-                    // item.lectors.forEach(
-                    //     element => {
-                    //       if (element.First_Name.toLowerCase().match(this.searchQuery.toLowerCase()) != null){
-                    //         return element.First_Name.toLowerCase().match(this.searchQuery.toLowerCase())
-                    //       }
-                    //     }
-                    // );
-                      
+            return item.Program_Name.toLowerCase().match(this.searchQuery.toLowerCase())      
         })
+        //if we didnt found programs:
         if (result[0] == undefined){
           console.log("Found nothing in program names")
+          //try fo find lesctors names
             return this.Programs.filter((item,i)=>{
-            
             for (let j = 0; j < this.Programs[i].lectors.length; j++) {
               if(this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase()) != null){
-                  console.log(this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase()))
                   return this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase())
               }
             }
           })
         }
+        // if we found program names, return it)
         else{
           return result
         }
-        console.log(result)
-        // return kek
       } else {
         return this.Programs;
       }
