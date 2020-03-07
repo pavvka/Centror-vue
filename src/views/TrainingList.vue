@@ -70,8 +70,8 @@ export default {
   computed: {
     filteredResources (){
       if (this.searchQuery && this.searchQuery.length >= 0) {
-        return this.Programs.filter((item,i)=>{
-            // return item.Program_Name.toLowerCase().match(this.searchQuery.toLowerCase())
+        var result = this.Programs.filter((item,i)=>{
+            return item.Program_Name.toLowerCase().match(this.searchQuery.toLowerCase())
             
             for (let j = 0; j < this.Programs[i].lectors.length; j++) {
               if(this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase()) != null){
@@ -97,15 +97,22 @@ export default {
                     // );
                       
         })
-        // var kek = []
-        // for (let i = 0; i < this.Programs.length; i++) {
-          // for (let j = 0; j < this.Programs[i].lectors.length; j++) {
-          //   if(this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase()) != null){
-          //     kek[i] = this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase())
-          //   }
-          // }
-        // }
-        console.log(kek)
+        if (result[0] == undefined){
+          console.log("Found nothing in program names")
+            return this.Programs.filter((item,i)=>{
+            
+            for (let j = 0; j < this.Programs[i].lectors.length; j++) {
+              if(this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase()) != null){
+                  console.log(this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase()))
+                  return this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase())
+              }
+            }
+          })
+        }
+        else{
+          return result
+        }
+        console.log(result)
         // return kek
       } else {
         return this.Programs;
