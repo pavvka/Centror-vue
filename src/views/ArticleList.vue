@@ -12,7 +12,7 @@
         :key="index"
         class="item">
         <div class="row marg">
-          <router-link class="trainingLink" :to="`/article/${article.id}`">
+          <router-link class="trainingLink" :to="`/article-detail/${article.id}`">
             <div class="training">
             <div class="col-lg-6">
               
@@ -22,15 +22,6 @@
               </div>
             </div>
           </router-link>
-          <!-- <div class="col col-12 col-md-6">
-            <p class="text-center">{{training.Program_Describe.slice(0, 150)}}...</p>
-          </div>
-          <div class="col col-12 col-md-6">
-            <p class="text-center">{{training.Price}}рублей</p>
-          </div>
-          <div class="col col-12 col-md-6">
-            <p class="text-center"> {{training.lectors.Last_Name}} {{training.lectors.First_Name}}</p>
-          </div> -->
         </div>
       </div>
     </div>
@@ -45,8 +36,8 @@ export default {
     return {
       searchQuery:'',
       subcategorySelected: '',
-      Articles: '',
       test: [],
+      Article: '',
       schet: 0,
       url: {
           ArticleApiLink: this.$store.getters.takeArticle 
@@ -66,17 +57,19 @@ export default {
       this.getHashtags()
  },
   computed: {
-    filteredResources (){
+    filteredResources() {
       if (this.searchQuery && this.searchQuery.length >= 0) {
-        //Program names finding
-        return this.Article.filter((item,i)=>{
-            return item.Title.toLowerCase().match(this.searchQuery.toLowerCase())      
+        return this.Article.filter((item)=>{
+            return item.Title.toLowerCase().match(this.searchQuery.toLowerCase());
         })
       
       } else {
+
+        console.log(this.Article);
         return this.Article;
       }
-    },
+    }
+
   }
  
 }

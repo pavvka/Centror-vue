@@ -75,8 +75,8 @@ const routes = [
     component: ArticleList
   },
   {
-    path: '/article/:id',
-    name: 'article',
+    path: '/article-detail/:id',
+    name: 'article-detail',
     component: Article
   },
 ]
