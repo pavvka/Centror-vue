@@ -8,10 +8,13 @@ export default new Vuex.Store({
     api : {
       // refact this
       hosturl:'http://localhost:1337',
+      about: 'http://localhost:1337/info-blocks',
       programlink: 'http://localhost:1337/programs',
       articlelink: 'http://localhost:1337/articles',
       subcategorieslink: 'http://localhost:1337/subcategories',
-      caseslink: 'http://localhost:1337/cases'
+      caseslink: 'http://localhost:1337/cases',
+      footherlink: 'http://localhost:1337/futers',
+      foothersocialslink: 'http://localhost:1337/socials'
     }
   },
   mutations: {
@@ -39,7 +42,16 @@ export default new Vuex.Store({
     },
     takeCases(state){
       return state.api.caseslink
-    }
+    },
+    takeFooterLinks(state){
+      return state.api.footherlink
+    },
+    takeFooterSocialLinks(state){
+      return state.api.foothersocialslink
+    },
+    takeAbouts(state){
+      return state.api.about
+    },
   },
   modules: {
   }
