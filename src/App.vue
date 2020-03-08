@@ -6,13 +6,13 @@
       v-bind:class="{ active: isActive }"
       nav-brand="Centor"
       :nav-list="{
-        'Услуги': {'Консалтинг':'/consulting', 'Обучение': '/study', 'Бизнес туризм': '/'},
+        'Услуги': '/training',
         'Кейсы': '/cases',
         'Блог': '/article',
         'О нас': '/about',
         'Контакты': '/contacts'
       }" />
-
+      <!-- 'Услуги': {'Консалтинг':'/consulting', 'Обучение': '/study', 'Бизнес туризм': '/'}, -->
     <div class="content">
       <router-view />
     </div>
@@ -67,9 +67,9 @@ export default {
     width: 100%;
   }
   @media (min-width: 990px) {
-    .posit{
-      height: 43px;
-    }
+    // .posit{
+    //   height: 43px;
+    // }
   }
 }
 </style>
