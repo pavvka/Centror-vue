@@ -1,6 +1,8 @@
 <template>
   <div>
     <section class="teamBack">
+
+      <!-- url(/img/TeamBackground.ed1d6aee.png); -->
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
@@ -106,15 +108,32 @@
 </template>
 
 <script>
-
 export default {
-  name: 'study'
+  name: 'study',
+  data () {
+    return {
+      url: {
+          AboutJSON: this.$store.getters.takeAbouts,
+      },
+      About: {},
+      host: this.$store.getters.takeHost,
+      
+    }
+  },
+  async created () {
+    const respones = await fetch(this.url.AboutJSON)
+    const data = await respones.json()
+
+    this.About = data
+  },
+  mounted () {
+  }
 }
 </script>
 
 <style scoped>
 .teamBack{
-    background-image: url(../images/TeamBackground.png);
+  background-image: url(../images/TeamBackground.png);
     height: 600px;
     background-size: cover;
     -webkit-background-size: cover;
