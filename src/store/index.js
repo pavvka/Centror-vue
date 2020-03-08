@@ -14,7 +14,8 @@ export default new Vuex.Store({
       subcategorieslink: 'http://localhost:1337/subcategories',
       caseslink: 'http://localhost:1337/cases',
       footherlink: 'http://localhost:1337/futers',
-      foothersocialslink: 'http://localhost:1337/socials'
+      foothersocialslink: 'http://localhost:1337/socials',
+      contactslink: 'http://localhost:1337/contacts'
     }
   },
   mutations: {
@@ -52,6 +53,9 @@ export default new Vuex.Store({
     takeAbouts(state){
       return state.api.about
     },
+    takeContacts(state){
+      return state.api.contactslink
+    }
   },
   modules: {
   }
