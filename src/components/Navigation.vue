@@ -24,6 +24,7 @@
           <template v-else-if="typeof(path) == 'object'">
             <a
               class="nav-link dropdown-toggle"
+              @click="route()"
               href="#"
               id="navbarDropdownMenuLink"
               role="button"
@@ -65,6 +66,11 @@ export default {
   props: {
     navList: Object,
     navBrand: String
+  },
+  methods: {
+    route(){
+      this.$router.push('/training');
+    }
   }
 }
 </script>
