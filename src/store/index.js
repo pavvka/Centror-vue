@@ -11,6 +11,7 @@ export default new Vuex.Store({
       programlink: 'http://localhost:1337/programs',
       articlelink: 'http://localhost:1337/articles',
       subcategorieslink: 'http://localhost:1337/subcategories',
+      caseslink: 'http://localhost:1337/cases'
     }
   },
   mutations: {
@@ -35,6 +36,9 @@ export default new Vuex.Store({
     },
     takeHost(state){
       return state.api.hosturl
+    },
+    takeCases(state){
+      return state.api.caseslink
     }
   },
   modules: {

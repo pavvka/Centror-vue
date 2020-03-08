@@ -5,7 +5,8 @@ import Home from '@/views/Home.vue'
 import TrainingList from '@/views/TrainingList.vue'
 import Training from '@/views/Training.vue'
 import Contacts from '@/views/Contacts.vue'
-import Cases from '@/views/Cases.vue'
+import Cases from '@/views/CasesList.vue'
+import Case from '@/views/Case.vue'
 import Club from '@/views/Club.vue'
 import ArticleList from '@/views/ArticleList.vue'
 import Article from '@/views/Article.vue'
@@ -57,6 +58,11 @@ const routes = [
     path: '/cases',
     name: 'cases',
     component: Cases
+  },
+  {
+    path: '/case/:id',
+    name: 'case',
+    component: Case
   },
   {
     path: '/club',
