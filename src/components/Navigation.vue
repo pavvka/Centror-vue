@@ -89,7 +89,7 @@ export default {
 
   .dropdown-menu{
     background: rgba(97, 139, 170, 0.78);
-    margin-top: 0.45rem;
+    margin: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border: none;
@@ -124,6 +124,12 @@ export default {
   }
   .russian, .english:hover{
       color: #fff;
+  }
+  .dropdown:hover .dropdown-menu {
+  display: block;
+  }
+  .dropdown-menu:hover {
+  display: block;
   }
   @media (min-width: 991px) {
     .navbar-brand {
