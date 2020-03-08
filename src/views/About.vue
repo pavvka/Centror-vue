@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="teamBack">
+    <section class="teamBack" v-bind:style="styleObject">
 
       <!-- url(/img/TeamBackground.ed1d6aee.png); -->
         <div class="container">
@@ -117,7 +117,11 @@ export default {
       },
       About: {},
       host: this.$store.getters.takeHost,
-      
+      styleObject: {
+        color: 'red',
+        fontSize: '13px',
+        background: 'url(/img/TeamBackground.ed1d6aee.png)'
+      }
     }
   },
   async created () {
@@ -133,7 +137,6 @@ export default {
 
 <style scoped>
 .teamBack{
-  background-image: url(../images/TeamBackground.png);
     height: 600px;
     background-size: cover;
     -webkit-background-size: cover;
