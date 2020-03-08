@@ -17,24 +17,29 @@
       <!-- swiper -->
       <swiper :options="swiperOption">
         <swiper-slide>
+          <div class="slideBody">
             <h2 class="class__title">Описание</h2>
-            <img src="../images/StudyBG.png" alt="">
+          </div>
         </swiper-slide>
         <swiper-slide>
+          <div class="slideBody">
             <h2 class="class__title">Описание</h2>
-            <img src="../images/StudyBG.png" alt="">
+          </div>
         </swiper-slide>
         <swiper-slide>
+          <div class="slideBody">
             <h2 class="class__title">Описание</h2>
-            <img src="../images/StudyBG.png" alt="">
+          </div>
         </swiper-slide>
         <swiper-slide>
+          <div class="slideBody">
             <h2 class="class__title">Описание</h2>
-            <img src="../images/StudyBG.png" alt="">
+          </div>
         </swiper-slide>
         <swiper-slide>
+          <div class="slideBody">
             <h2 class="class__title">Описание</h2>
-            <img src="../images/StudyBG.png" alt="">
+          </div>
         </swiper-slide>
 
         <div class="swiper-pagination" slot="pagination"></div>
@@ -97,5 +102,8 @@ export default {
 .goodCases_one{
     font-size: 18px;
     margin-top: 15px;
+}
+.slideBody{
+  background-image: url('../images/StudyBG.png')
 }
 </style>

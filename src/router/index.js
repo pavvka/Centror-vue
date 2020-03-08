@@ -7,6 +7,7 @@ import Training from '@/views/Training.vue'
 import Contacts from '@/views/Contacts.vue'
 import Cases from '@/views/Cases.vue'
 import Club from '@/views/Club.vue'
+import ArticleList from '@/views/ArticleList.vue'
 
 Vue.use(VueRouter)
 
@@ -60,7 +61,12 @@ const routes = [
     path: '/club',
     name: 'club',
     component: Club
-  }
+  },
+  {
+    path: '/article/',
+    name: 'article',
+    component: ArticleList
+  },
 ]
 
 const router = new VueRouter({

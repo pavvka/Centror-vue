@@ -7,9 +7,8 @@
       nav-brand="Centor"
       :nav-list="{
         'Услуги': '/training',
-        'Кейсы': '/about',
-        'Клуб Centror': '/about',
-        'Блог': '/training',
+        'Кейсы': '/cases',
+        'Блог': '/article',
         'О нас': '/about',
         'Контакты': '/contacts'
       }" />

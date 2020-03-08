@@ -9,6 +9,7 @@ export default new Vuex.Store({
       // refact this
       hosturl:'http://localhost:1337',
       programlink: 'http://localhost:1337/programs',
+      articlelink: 'http://localhost:1337/articles',
       subcategorieslink: 'http://localhost:1337/subcategories',
     }
   },
@@ -25,6 +26,9 @@ export default new Vuex.Store({
   getters: {
     takeProgramm(state){
       return state.api.programlink
+    },
+    takeArticle(state){
+      return state.api.articlelink
     },
     takeSubcategories(state){
       return state.api.subcategorieslink
