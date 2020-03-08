@@ -21,10 +21,10 @@
       clickMode="push"
       ></vue-particles>
     </div>
-    <div class="container">
-      <div class="row posit">
-          <div class="col-lg-1"></div>
-          <div class="col-lg-4">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
             <div class="clock">
               <AnalogClock
                 backgroundImage="https://i.ibb.co/LhzMQ3j/Asset-2-1.png"
@@ -36,7 +36,7 @@
               />
             </div>
           </div>
-          <div class="col-sm-7">
+          <div class="col-md-6">
               <p class="mainText">
                 TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
                 TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
@@ -72,37 +72,28 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .text-al{
     margin-left: auto;
 }
+#kek {
+  min-height: 80vh;
+}
 .mainText{
     color: #fff;
+    text-align: center;
 }
-.posit{
-    position: absolute;
-    top: 400px;
-    max-width: 1000px;
-}
-
-
-
-/* MEDIA QWERTYS */
-@media (min-width: 991px) {
-.myClock{
+.content {
   position: relative;
-  top: -100px;
 }
+.container-fluid {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
-@media (max-width: 1200px) {
-    .posit{
-      top: 300px;
-    }
+.col-md-6, .col-md-5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
- @media (max-width: 991px) {
-    .posit{
-      top: 100px;
-    }
-  }
-
 </style>

@@ -50,19 +50,4 @@ export default {
       top: 100px;
     }
   }
-  @media (max-width: 900px) {
-    .ourAdvantages{
-      margin-top: 30%;
-    }
-  }
-  @media (max-width: 600px) {
-    .ourAdvantages{
-      margin-top: 60%;
-    }
-  }
-  @media (max-width: 460px) {
-    .ourAdvantages{
-      margin-top: 400px;
-    }
-  }
 </style>
