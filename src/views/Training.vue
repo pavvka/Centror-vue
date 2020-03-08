@@ -41,26 +41,35 @@
     </div>
     <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content modalWindow">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Контактная информация</h5>
           </div>
             <div class="modal-body">
               <div class="input-group" style="margin-top:20px;">
-                <input type="text" class="form-control" style="margin-right:20px">
-                <input type="text" class="form-control">
+                <p class="inputBlock">
+                  <label for="SecondName">Фамилия:</label>
+                  <input id="SecondName" type="text" class="form-control" style="margin-right:20px">
+                </p>
+                <p class="inputBlock">
+                  <label for="email">Адрес электронной почты:</label>
+                  <input id="email" type="text" class="form-control">
+                </p>
             </div>
-            <div class="input-group" style="margin-top:20px;">
-                <input type="text" class="form-control" style="margin-right:20px">
-                <input type="text" class="form-control">
+              <div class="input-group" style="margin-top:20px;">
+                <p class="inputBlock">
+                  <label for="name">Имя:</label>
+                  <input id="name" type="text" class="form-control" style="margin-right:20px">
+                </p>
+                <p class="inputBlock">
+                  <label for="number">Контактный телефон:</label>
+                  <input id="number" type="text" class="form-control">
+                </p>
             </div>
           </div>
           <div class="modal-footer">
-            <div class="form-group">
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <button type="button" class="btn btn-primary">Перейти к оплате</button>
+            <datepicker :value="state.date" :wrapper-class="{background:kek}" name="uniquename" :language="ru"></datepicker>
+            <button type="button" class="submitButton">Перейти к оплате</button>
           </div>
         </div>
       </div>
@@ -69,13 +78,23 @@
 </template>
 
 <script>
+import Datepicker from 'vuejs-datepicker';
+import {ru} from 'vuejs-datepicker/dist/locale'
 export default {
   name: 'training',
+  components: {
+    Datepicker
+  },
   data () {
     return {
+      ru: ru,
+      kek: 'red',
       url: {
           ProgramApiLink: this.$store.getters.takeProgramm,
           SubcategoriesApilink: this.$store.getters
+      },
+      state: {
+        date: new Date(2016, 9,  16)
       },
       training: {},
       host: this.$store.getters.takeHost,
@@ -142,5 +161,41 @@ export default {
       }
     }
   }
+}
+.modalWindow{
+  background: linear-gradient(0deg, rgba(97, 139, 170, 0.44), rgba(97, 139, 170, 0.44)), #3D4A5B;
+  font-family: Montserrat;
+}
+.modal-header, .modal-body, .modal-footer{
+  border: none;
+}
+.inputBlock{
+  width: 220px;
+  margin-left: 10px;
+}
+label{
+  font-size: 15px;
+}
+.modal-header{
+  font-size: 18px;
+  padding: 10px;
+}
+.modal-body{
+  padding-top: 0;
+}
+.form-control{
+  background: #595C61;
+  color: #fff;
+  border:#595C61;
+  height: 25px;
+}
+.submitButton{
+  background: #495A67;
+  border-radius: 5px;
+  color: #fff;
+  border: #495A67;
+}
+.datePicker{
+  background: #495A67;
 }
 </style>
