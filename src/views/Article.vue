@@ -2,13 +2,29 @@
   <div class="training">
     <div class="container">
       <div class="row">
-        <div class="col col-12">
-          <h1>{{article.Title}}</h1>
+        <div class="col-lg-12">
+          <router-link class="articleLink" :to="`/article`">
+            ← Вернуться к статьям
+          </router-link>
         </div>
       </div>
       <div class="row">
-        <div class="description col col-12 col-md-6">
-          <p>{{article.Text}}</p>
+        <div class="col col-12">
+          <h1 class="articleTitle">{{article.Title}}</h1>
+          <div class="info">
+            <span class="autor">Автор: 
+              <span v-if="article.author != null">{{article.author.First_Name}}</span>
+              <span v-else>Centror</span>
+            </span>
+            <span class="date">Дата публикации: {{article.created_at}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="mainText">
+            <p>{{article.Text}}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -38,91 +54,30 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.training {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  color: whitesmoke;
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-
-    .row:nth-child(2) {
-      flex: 1 1 auto;
-
-      .description:nth-child(1) {
-        padding: 1rem 1.5rem;
-        border-radius: 15px;
-        background-color: #435A6E;
-      }
-
-      .description:nth-child(2) {
-        padding: 1rem 1.5rem;
-
-        .teachers .teacher{
-          display: flex;
-          align-items: center;
-          margin: 1rem 0;
-
-          h4 {
-            margin: 0;
-          }
-
-          .avatar {
-            width: 50px;
-            height: 50px;
-            background-color: grey;
-            margin-right: 1rem;
-          }
-        }
-
-        .order {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          margin-top: 3rem;
-        }
-      }
-    }
-  }
-}
-.modalWindow{
-  background: linear-gradient(0deg, rgba(97, 139, 170, 0.44), rgba(97, 139, 170, 0.44)), #3D4A5B;
+<style scoped>
+.articleLink{
+  color: #fff;
   font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300; 
 }
-.modal-header, .modal-body, .modal-footer{
-  border: none;
+.articleLink:hover{
+  text-decoration: none;
 }
-.inputBlock{
-  width: 220px;
-  margin-left: 10px;
-}
-label{
-  font-size: 15px;
-}
-.modal-header{
-  font-size: 18px;
-  padding: 10px;
-}
-.modal-body{
-  padding-top: 0;
-}
-.form-control{
-  background: #595C61;
+.articleTitle{
   color: #fff;
-  border:#595C61;
-  height: 25px;
-}
-.submitButton{
-  background: #495A67;
-  border-radius: 5px;
+  font-size: 60px;
+}.info{
   color: #fff;
-  border: #495A67;
+  border-top: 1px #fff solid;
+  width: 460px;
 }
-.datePicker{
-  background: #495A67;
+.autor{
+  margin-right: 20px;
+}
+.mainText{
+  color: #fff;
+  padding: 35px;
+  font-family: Montserrat;
 }
 </style>
