@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="search__block">
-            <input class="search" type="texts" placeholder="Поиск по названию или преподователю..." v-model="searchQuery">
+            <input class="search" type="texts" placeholder="Поиск по заголовку" v-model="searchQuery">
           </div>
         </div>
       </div>
@@ -49,8 +49,7 @@ export default {
       test: [],
       schet: 0,
       url: {
-          ArticleApiLink: this.$store.getters.takeArticle,
-          
+          ArticleApiLink: this.$store.getters.takeArticle 
       },
     }
   },

@@ -8,6 +8,7 @@ import Contacts from '@/views/Contacts.vue'
 import Cases from '@/views/Cases.vue'
 import Club from '@/views/Club.vue'
 import ArticleList from '@/views/ArticleList.vue'
+import Article from '@/views/Article.vue'
 
 Vue.use(VueRouter)
 
@@ -66,6 +67,11 @@ const routes = [
     path: '/article/',
     name: 'article',
     component: ArticleList
+  },
+  {
+    path: '/article/:id',
+    name: 'article',
+    component: Article
   },
 ]
 
