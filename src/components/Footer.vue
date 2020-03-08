@@ -4,84 +4,35 @@
       <div class="row">
         <div class="col-lg-1"></div>
         <div class="col-lg-7 centered">
+
+
           <div class="footerList">
             <div class="row">
-              <div class="col-lg-4">
+              <div v-for="(Fo, index) in FooterLinks.Footer" :key="index" class="col-lg-4">
+                
                 <ul class="footerList">
-                  <li class="footerList__item footerList__title">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
                   <li class="footerList__item">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
-                  <li class="footerList__item">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
+                    <a :href="Fo.Link" class="footerList__item__link">{{Fo.Name}}</a>
                   </li>
                 </ul>
+
               </div>
             </div>
           </div>
-          <div class="footerList">
-            <div class="row">
-              <div class="col-lg-4">
-                <ul class="footerList">
-                  <li class="footerList__item footerList__title">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
-                  <li class="footerList__item">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
-                  <li class="footerList__item">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footerList">
-            <div class="row">
-              <div class="col-lg-4">
-                <ul class="footerList">
-                  <li class="footerList__item footerList__title">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
-                  <li class="footerList__item">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
-                  <li class="footerList__item">
-                    <a href="#" class="footerList__item__link">Lorem Ipsum</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+
+        
         </div>
         <div class="col-lg-4">
           <div class="footerContacts">
             <h3 class="footerContacts__header">Свяжитесь с нами:</h3>
             <div class="footerContacts__links">
-                <a href="#" class="footerContacts__links__item">
+                <a  v-for="(FooterSocialLinksiter, index) in FooterSocial" :key="index" 
+                    :href="FooterSocialLinksiter.Link" class="footerContacts__links__item">
                   <div class="iconContainer">
-                    <img src="../images/facebook.png" class="footerIcon" alt="">
-                  </div>
-                </a>
-                <a href="#" class="footerContacts__links__item">
-                  <div class="iconContainer">
-                    <img src="../images/instagram.png" class="footerIcon" alt="">
-                  </div>
-                </a>
-                <a href="#" class="footerContacts__links__item">
-                  <div class="iconContainer">
-                    <img src="../images/MailIcon2.png" class="footerIconLetter" alt="">
-                  </div>
-                </a>
-                <a href="#" class="footerContacts__links__item">
-                  <div class="iconContainer">
-                    <img src="../images/facebook.png" class="footerIcon" alt="">
+                    <img :src="host + FooterSocialLinksiter.Logo.url" class="footerIcon" alt="">
                   </div>
                 </a>
             </div>
-            <div class="footerContacts__mail">abcdefg@centror.com</div>
           </div>
         </div>
       </div>
@@ -91,7 +42,34 @@
 
 <script>
 export default {
-  name: 'footer'
+  name: 'footer',
+  data () {
+    return {
+      url: {
+          FooterLinks: this.$store.getters.takeFooterLinks,
+          FooterSocialLinks: this.$store.getters.takeFooterSocialLinks
+      },
+      FooterSocial: {},
+      FooterLinks: {},
+      host: this.$store.getters.takeHost,
+      
+    }
+  },
+  async created () {
+    const respones1 = await fetch(this.url.FooterLinks)
+    const data1 = await respones1.json()
+
+    this.FooterLinks = data1[0]
+
+    const respones2 = await fetch(this.url.FooterSocialLinks)
+    const data2 = await respones2.json()
+
+    this.FooterSocial = data2
+
+    console.log(this.FooterLinks);
+  },
+  mounted () {
+  }
 }
 </script>
 
