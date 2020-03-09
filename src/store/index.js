@@ -3,13 +3,20 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+let baseurl='https://api.centror.ru';
 export default new Vuex.Store({
   state: {
     api : {
-      // refact this
-      hosturl:'http://localhost:1337',
-      programlink: 'http://localhost:1337/programs',
-      subcategorieslink: 'http://localhost:1337/subcategories',
+      hosturl: baseurl,
+      about: baseurl + '/info-blocks',
+      programlink: baseurl + '/programs',
+      articlelink: baseurl + '/articles',
+      subcategorieslink: baseurl + '/subcategories',
+      caseslink: baseurl + '/cases',
+      footherlink: baseurl + '/futers',
+      foothersocialslink: baseurl + '/socials',
+      contactslink: baseurl + '/contacts',
+      homelink: baseurl + '/mains',
     }
   },
   mutations: {
@@ -26,11 +33,32 @@ export default new Vuex.Store({
     takeProgramm(state){
       return state.api.programlink
     },
+    takeArticle(state){
+      return state.api.articlelink
+    },
     takeSubcategories(state){
       return state.api.subcategorieslink
     },
     takeHost(state){
       return state.api.hosturl
+    },
+    takeCases(state){
+      return state.api.caseslink
+    },
+    takeFooterLinks(state){
+      return state.api.footherlink
+    },
+    takeFooterSocialLinks(state){
+      return state.api.foothersocialslink
+    },
+    takeAbouts(state){
+      return state.api.about
+    },
+    takeContacts(state){
+      return state.api.contactslink
+    },
+    takeHome(state){
+      return state.api.homelink
     }
   },
   modules: {

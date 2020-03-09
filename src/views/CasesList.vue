@@ -10,24 +10,12 @@
                                     <h2>Примеры успешных кейсов</h2>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" v-for="(caseone, index) in Cases" :key="index">
                                 <div class="col-lg-12">
                                     <div class="goodCases_one">
-                                        Пример №2
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="goodCases_one">
-                                        Пример №3
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="goodCases_one">
-                                        Пример №4
+                                      <router-link class="caseLink" :to="`/case/${caseone.id}`">
+                                        {{caseone.Title}}
+                                      </router-link>
                                     </div>
                                 </div>
                             </div>
@@ -44,13 +32,28 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'app',
   data () {
     return {
-
+    Cases: '',
+    url: {
+          CasesApiLink: this.$store.getters.takeCases
+      },
     }
-  }
+  },
+  beforeMount(){
+      this.getHashtags()
+  },
+    methods: {
+    getHashtags(){
+        axios.get(this.url.CasesApiLink).then((response) => {
+            this.Cases = response.data;
+        });
+    },
+    
+  },
 }
 </script>
 
@@ -75,5 +78,11 @@ export default {
 .goodCases_one{
     font-size: 18px;
     margin-top: 15px;
+}
+.caseLink{
+    color: #fff;
+}
+.caseLink:hover{
+    text-decoration: none;
 }
 </style>

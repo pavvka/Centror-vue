@@ -7,13 +7,12 @@
       nav-brand="Centor"
       :nav-list="{
         'Услуги': '/training',
-        'Кейсы': '/about',
-        'Клуб Centror': '/about',
-        'Блог': '/training',
+        'Кейсы': '/cases',
+        'Блог': '/article',
         'О нас': '/about',
         'Контакты': '/contacts'
       }" />
-
+      <!-- 'Услуги': {'Консалтинг':'/consulting', 'Обучение': '/study', 'Бизнес туризм': '/'}, -->
     <div class="content">
       <router-view />
     </div>
@@ -67,12 +66,10 @@ export default {
     margin: 0;
     width: 100%;
   }
-  // @media (min-width: 1200px) {
-  //   .posit{
-  //     position: absolute;
-  //     width: 90%;
-  //     left: 3%;
-  //   }
-  // }
+  @media (min-width: 990px) {
+    // .posit{
+    //   height: 43px;
+    // }
+  }
 }
 </style>

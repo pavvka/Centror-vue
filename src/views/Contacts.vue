@@ -13,7 +13,7 @@
                                     <h2 class="title">Позвоните нам</h2>
                                     <div class="firstPhrase">Есть вопросы?</div>
                                     <div class="secondPhrase">Мы поможем!</div>
-                                    <h3 class="number">8 666 555 33 22</h3>
+                                    <h3 class="number">{{Contacts[0].Contact_Phone}}</h3>
                                     <a href="#" class="siteCall">Позвонить с сайта</a>
                                 </div>
                             </div>
@@ -25,7 +25,7 @@
                                     <h2 class="title">Напишите нам</h2>
                                     <div class="firstPhrase">Идеи? Предложения?</div>
                                     <div class="secondPhrase">Мы открыты для любых вопросов!</div>
-                                    <a href="#" class="siteCall">Написать на 24@centrot.ru</a>
+                                    <a href="#" class="siteCall">Написать на {{Contacts[0].Contact_Email}}</a>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -35,7 +35,7 @@
                                     </span>
                                     <h2 class="title">Обратная связь</h2>
                                     <div class="firstPhrase">Поделитесь мнением о нашей работе и помогите нам стать лучше!</div>
-                                    <a href="#"  class="siteCall">Написать на 24@centrot.ru</a>
+                                    <a href="#"  class="siteCall">Написать на {{Contacts[0].Feedback_Email}}</a>
                                 </div>
                             </div>
                         </div>
@@ -49,10 +49,10 @@
                             Контакты для сотрудничества
                         </h2>
                         <div class="bottomContacts__email">
-                            Email: collaboration@centror.ru
+                            Email: {{Contacts[0].Collaboration_Email}}
                         </div>
                         <div class="bottomContacts__number">
-                            Тел.: 8 666 222-33-11
+                            Тел.: {{Contacts[0].Collaboration_Phone}}
                         </div>
                     </div>
                 </div>
@@ -60,6 +60,32 @@
         </div>
     </section>
 </template>
+
+<script>
+import axios from 'axios'
+export default {
+  name: 'app',
+  data () {
+    return {
+    Contacts: '',
+    url: {
+          ContactsApiLink: this.$store.getters.takeContacts
+      },
+    }
+  },
+  beforeMount(){
+      this.getHashtags()
+  },
+    methods: {
+    getHashtags(){
+        axios.get(this.url.ContactsApiLink).then((response) => {
+            this.Contacts = response.data;
+        });
+    },
+    
+  },
+}
+</script>
 
 <style scoped>
 .contacts__block{
