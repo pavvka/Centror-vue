@@ -1,18 +1,19 @@
 <template>
     <section class="ourParallax">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <img src="../images/parallax.jpg" alt="" class="bigImg">
-        </div>
-      </div>
-      </div>
+      <img v-parallax.modifier="0.3" src="../images/parallax.jpg" alt="" class="image">
+    </div>
     </section>
 </template>
 
 <script>
+import Parallax from 'vue-parallaxy'
+
 export default {
   name: 'app',
+  components: {
+    Parallax
+  },
   data () {
     return {
 
@@ -22,6 +23,9 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  overflow: hidden;
+}
 .headerwrap{
   display: block;
   text-align: center;
@@ -37,10 +41,9 @@ export default {
   -o-background-size: cover;
   background-size: cover;
 }
-.bigImg{
+.image{
   width: 100%;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  object-fit: cover;
 }
 
 </style>
