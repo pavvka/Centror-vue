@@ -3,20 +3,20 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+let baseurl='https://api.centror.ru';
 export default new Vuex.Store({
   state: {
     api : {
-      // refact this
-      hosturl:'http://localhost:1337',
-      about: 'http://localhost:1337/info-blocks',
-      programlink: 'http://localhost:1337/programs',
-      articlelink: 'http://localhost:1337/articles',
-      subcategorieslink: 'http://localhost:1337/subcategories',
-      caseslink: 'http://localhost:1337/cases',
-      footherlink: 'http://localhost:1337/futers',
-      foothersocialslink: 'http://localhost:1337/socials',
-      contactslink: 'http://localhost:1337/contacts',
-      homelink: 'http://localhost:1337/mains',
+      hosturl: baseurl,
+      about: baseurl + '/info-blocks',
+      programlink: baseurl + '/programs',
+      articlelink: baseurl + '/articles',
+      subcategorieslink: baseurl + '/subcategories',
+      caseslink: baseurl + '/cases',
+      footherlink: baseurl + '/futers',
+      foothersocialslink: baseurl + '/socials',
+      contactslink: baseurl + '/contacts',
+      homelink: baseurl + '/mains',
     }
   },
   mutations: {
