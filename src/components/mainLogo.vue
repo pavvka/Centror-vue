@@ -5,7 +5,7 @@
       style="width: 100%;" 
       color="#dedede" 
       class="back" 
-      :particlesNumber="150"
+      :particlesNumber="100"
       :particleOpacity="0.7"
       shapeType="circle"
       :particleSize="4"
