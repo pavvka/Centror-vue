@@ -47,26 +47,33 @@
               <div class="input-group" style="margin-top:20px;">
                 <p class="inputBlock">
                   <label for="SecondName">Фамилия:</label>
-                  <input id="SecondName" type="text" class="form-control" style="margin-right:20px">
+                  <input v-model="second_name" id="SecondName" type="text" class="form-control" style="margin-right:20px">
                 </p>
                 <p class="inputBlock">
                   <label for="email">Адрес электронной почты:</label>
-                  <input id="email" type="text" class="form-control">
+                  <input v-model="email_adress" id="email" type="text" class="form-control">
                 </p>
             </div>
               <div class="input-group" style="margin-top:20px;">
                 <p class="inputBlock">
                   <label for="name">Имя:</label>
-                  <input id="name" type="text" class="form-control" style="margin-right:20px">
+                  <input v-model="first_name" id="name" type="text" class="form-control" style="margin-right:20px">
                 </p>
                 <p class="inputBlock">
                   <label for="number">Контактный телефон:</label>
-                  <input id="number" type="text" class="form-control">
+                  <input v-model="phone_number" id="number" type="text" class="form-control">
+                </p>
+                <p class="inputBlock">
+                  <label for="date">Дата рождения:</label>
+                  <datepicker v-model="date_picked" id="date" :language="ru"></datepicker>
+                </p>
+                <p class="inputBlock">
+                  <label for="cityid">Город:</label>
+                  <input v-model="city" id="cityid" type="text" class="form-control">
                 </p>
             </div>
           </div>
           <div class="modal-footer">
-            <datepicker :value="state.date" :wrapper-class="{background:kek}" name="uniquename" :language="ru"></datepicker>
             <button type="button" class="submitButton">Перейти к оплате</button>
           </div>
         </div>
@@ -85,15 +92,21 @@ export default {
   },
   data () {
     return {
+      second_name: '',
+      email_adress: '',
+      first_name: '',
+      phone_number: '',
+      date_picked: '',
+      city: '',
+
       ru: ru,
-      kek: 'red',
       url: {
           ProgramApiLink: this.$store.getters.takeProgramm,
           SubcategoriesApilink: this.$store.getters
       },
-      state: {
-        date: new Date(2016, 9,  16)
-      },
+      // state: {
+      //   date: new Date(2016, 9,  16)
+      // },
       training: {},
       host: this.$store.getters.takeHost,
     }
@@ -108,6 +121,18 @@ export default {
   }
 }
 </script>
+
+<style>
+.vdp-datepicker *{
+  background: #595C61;
+  color: #fff;
+  border:#595C61;
+  height: 25px;
+}
+.vdp-datepicker__calendar{
+  background-color: #495A67;
+}
+</style>
 
 <style lang="scss" scoped>
 .training {
@@ -193,7 +218,5 @@ label{
   color: #fff;
   border: #495A67;
 }
-.datePicker{
-  background: #495A67;
-}
+
 </style>
