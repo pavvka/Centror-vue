@@ -17,21 +17,18 @@
             <div class="col-lg-6">
               
                 <h3 class="training__title">{{training.Program_Name}}</h3>
-                <p class="training__text">{{training.Program_Short_Description}}...</p>
+                <p class="training__text">{{training.Program_Short_Description}}</p>
                 <p class="training__price">Стоимость программы: {{training.Price}} рублей</p>
 
               </div>
+              <div class="col-lg-6">
+                <h3>Преподавательский состав:</h3>
+                <div v-for="(lector, index) in training.lectors" :key="index" >
+                  {{lector.First_Name}} {{lector.Last_Name}}
+                </div>
+              </div>
             </div>
           </router-link>
-          <!-- <div class="col col-12 col-md-6">
-            <p class="text-center">{{training.Program_Describe.slice(0, 150)}}...</p>
-          </div>
-          <div class="col col-12 col-md-6">
-            <p class="text-center">{{training.Price}}рублей</p>
-          </div>
-          <div class="col col-12 col-md-6">
-            <p class="text-center"> {{training.lectors.Last_Name}} {{training.lectors.First_Name}}</p>
-          </div> -->
         </div>
       </div>
     </div>
