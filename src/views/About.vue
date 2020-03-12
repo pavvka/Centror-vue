@@ -2,13 +2,12 @@
   <div>
     <section class="teamBack" v-bind:style="styleObject">
 
-      <!-- url(/img/TeamBackground.ed1d6aee.png); -->
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
                     <div class="mainTeam">
                         <h1 class="mainTeam__title">
-                            Centror
+                            {{ this.About.Header_Title }}
                         </h1>
                     </div>
                 </div>
@@ -16,7 +15,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <p class="mainTeam__text">
-                        Макромолекула, обеспечивающая хранение, передачу из поколения в поколение и реализацию генетической программы развития и функционирования живых организмов.
+                        {{ this.About.Header_Text }}
                     </p>
                 </div>
             </div>
@@ -30,7 +29,7 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <h2 class="Stories__title">
-                                    Блок истории
+                                    {{ this.About.Block_Title }}
                                 </h2>
                             </div>
                         </div>
@@ -38,30 +37,7 @@
 
                             <div class="col-lg-12">
                               <p class="story">
-                                Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст 
-                                Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                 Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                  Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                   Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                    Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                     Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                      Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                       Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                        Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                         Текст Текст Текст Текст
-                                </p>
-                                <p class="story">
-                                Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст 
-                                Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                 Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                  Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                   Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                    Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                     Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                      Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                       Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                        Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст
-                                         Текст Текст Текст Текст
+                                {{ this.About.Block_Text }}
                               </p>
                             </div>
                         </div>
@@ -77,25 +53,22 @@
               
             </div>
           <div class="row">
-            <div class="col-lg-4" v-for="(member,index) in 6" :key="index">
+            <div class="col-lg-4" v-for="(member,index) in this.About.lecturers" :key="index">
               <div class="our-team-main memberColor">
               
                 <div class="team-front memberColor">
                   <div class="img__block">
-                    <img src="../images/member2.png" class="img-fluid" />
+                    <img :src="host + member.Photo.url" class="img-fluid" />
                   </div>
-                  <h3>ФИО</h3>
+                  <h4>{{ member.First_Name }} {{ member.Last_Name }}</h4>
                   <p class="member__status">
-                    Должность
+                    {{ member.position }}
                   </p>
                 </div>
                 
                 <div class="team-back memberColor">
                   <span>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
-                  natoque penatibus et magnis dis parturient montes,
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
-                  natoque.
+                  {{ member.info }}
                   </span>
                 </div>
               
@@ -120,18 +93,20 @@ export default {
       styleObject: {
         color: 'red',
         fontSize: '13px',
-        background: 'url(/img/TeamBackground.ed1d6aee.png)'
+        background: ''
       }
     }
   },
+
   async created () {
     const respones = await fetch(this.url.AboutJSON)
     const data = await respones.json()
 
-    this.About = data
-  },
-  mounted () {
+    this.About = data[0]
+    this.styleObject.background = 'url(' + this.host + this.About.Header_img.url + ')';
+
   }
+
 }
 </script>
 

@@ -66,7 +66,7 @@ export default {
 
     this.FooterSocial = data2
 
-    console.log(this.FooterLinks);
+    //console.log(this.FooterLinks);
   },
   mounted () {
   }
