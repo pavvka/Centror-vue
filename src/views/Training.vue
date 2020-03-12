@@ -9,14 +9,12 @@
       </div>
       <div class="row">
         <div class="description col col-12 col-md-6">
-          <p>{{training.Program_Describe}}</p>
+          <p>{{training.Program_Full_Description}}</p>
         </div>
-        <div 
-          v-for="(trainingTeacher, index) in training.lectors"
-          :key="index"
-          class="description col col-12 col-md-6">
+        <div class="description col col-12 col-md-6">
           <h4 class="text-center">Преподавательский состав</h4>
-          <div class="row teachers">
+          <div v-for="(trainingTeacher, index) in training.lectors"
+          :key="index" class="row teachers">
             <div class="teacher col col-12">
               <div class="avatar">
                 <img

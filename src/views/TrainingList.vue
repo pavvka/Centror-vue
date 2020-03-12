@@ -17,7 +17,7 @@
             <div class="col-lg-6">
               
                 <h3 class="training__title">{{training.Program_Name}}</h3>
-                <p class="training__text">{{training.Program_Describe.slice(0, 150)}}...</p>
+                <p class="training__text">{{training.Program_Short_Description}}...</p>
                 <p class="training__price">Стоимость программы: {{training.Price}} рублей</p>
 
               </div>
