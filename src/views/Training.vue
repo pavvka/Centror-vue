@@ -44,7 +44,7 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="500px" data-numposts="5"></div>
+          <div class="fb-comments" data-href="https://www.facebook.com/pavel.ust.75/posts/126045858965484" data-width="500px" data-numposts="5"></div>
         </div>
       </div>
     </div>
