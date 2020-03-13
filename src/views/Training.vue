@@ -36,6 +36,17 @@
           </div>
         </div>
       </div>
+      <!-- facebook -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>Отзывы из Facebook</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="500px" data-numposts="5"></div>
+        </div>
+      </div>
     </div>
     <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">

@@ -22,7 +22,7 @@
 
               </div>
               <div class="col-lg-6">
-                <h3>Преподавательский состав:</h3>
+                <h3 class="teacher__title">Преподавательский состав:</h3>
                 <div v-for="(lector, index) in training.lectors" :key="index" >
                   {{lector.First_Name}} {{lector.Last_Name}}
                 </div>
@@ -131,5 +131,8 @@ export default {
   padding-left: 5px;
   font-family: Montserrat;
   color: #CCCCCC;
+}
+.teacher__title{
+  font-size: 25px;
 }
 </style>
