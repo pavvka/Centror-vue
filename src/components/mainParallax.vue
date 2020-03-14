@@ -1,24 +1,52 @@
 <template>
     <section class="ourParallax">
     <div class="container">
-      <img v-parallax.modifier="0.3" src="../images/parallax.jpg" alt="" class="image">
+      <div  v-parallax.modifier="0.3" class="parralax">
+      <img src="../images/parallax.jpg" alt="" class="image">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="parallaxTitle">
+            {{HomeContent.Title}}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="parallaxBody">
+            {{HomeContent.Text}}
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
     </section>
 </template>
 
 <script>
 import Parallax from 'vue-parallaxy'
-
+import axios from 'axios'
 export default {
   name: 'app',
-  components: {
-    Parallax
-  },
   data () {
     return {
-
+      'HomeContent': '',
+      url: {
+          HomeApiLink: this.$store.getters.takeHome,
+          SubcategoriesApilink: this.$store.getters
+      },
     }
-  }
+  },
+  methods:{
+    getHashtags(){
+      axios.get(this.url.HomeApiLink).then((response) => {
+          this.HomeContent = response.data[0].Constructor[2];
+          console.log(this.HomeContent)
+      });
+    },
+  },
+  beforeMount(){
+    this.getHashtags()
+  },
 }
 </script>
 
@@ -41,9 +69,31 @@ export default {
   -o-background-size: cover;
   background-size: cover;
 }
+.parralax{
+  min-height: 660px;
+}
 .image{
+  min-height: 660px;
   width: 100%;
   object-fit: cover;
+  position: absolute;
+}
+.parallaxTitle{
+  display: inline-block;
+  background: rgba(97, 139, 170, 0.7);
+  color: #fff;
+  font-size: 18px;
+  margin-top: 300px;
+  margin-left: 30px;
+  min-height: 40px;
+  min-width: 250px;
+  text-align: center;
+}
+.parallaxBody{
+  background: rgba(48, 60, 76, 0.7);
+  color: #fff;
+  margin: 30px;
+  padding: 10px;
 }
 
 </style>
