@@ -39,12 +39,14 @@
       <!-- facebook -->
       <div class="row">
         <div class="col-lg-12">
-          <h3>Отзывы из Facebook</h3>
+          <h3 class="facebook__title">Отзывы из <span class="facebook__title__blue">Facebook</span></h3>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <div class="fb-comments" data-href="https://www.facebook.com/pavel.ust.75/posts/126045858965484" data-width="500px" data-numposts="5"></div>
+          <div class="facebook__container">
+            <div class="fb-comments" :data-href="training.Facebook_Link" data-width="500px" data-numposts="5"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -280,6 +282,15 @@ label{
   border-radius: 5px;
   color: #fff;
   border: #495A67;
+}
+.facebook__title{
+  margin-top: 30px;
+}
+.facebook__title__blue{
+  color: #3b5998;
+}
+.facebook__container{
+  background: #fff;
 }
 
 

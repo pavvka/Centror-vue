@@ -38,9 +38,7 @@
           </div>
           <div class="col-md-6">
               <p class="mainText">
-                TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-                TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
-                TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+                {{this.HomeContent[0].Constructor[0].text}}
               </p>
           </div>
       </div>
@@ -58,6 +56,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import {AnalogClock} from 'vue-analog-clock'
 export default {
   name: 'app',
@@ -66,9 +65,23 @@ export default {
   },
   data () {
     return {
-
+      'HomeContent': '',
+      url: {
+          HomeApiLink: this.$store.getters.takeHome,
+          SubcategoriesApilink: this.$store.getters
+      },
     }
-  }
+  },
+  methods:{
+    getHashtags(){
+      axios.get(this.url.HomeApiLink).then((response) => {
+          this.HomeContent = response.data;
+      });
+    },
+  },
+  beforeMount(){
+    this.getHashtags()
+  },
 }
 </script>
 
@@ -80,8 +93,10 @@ export default {
   min-height: 80vh;
 }
 .mainText{
-    color: #fff;
-    text-align: center;
+  font-family: Montserrat;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
 }
 .content {
   position: relative;
