@@ -18,54 +18,24 @@
     </section>
     <section class="studyMain">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-10">
-                    <div class="studyBLockLeft">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <img src="../images/study0.png" alt="" class="studyBLockLeft__img">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-10">
-                    <div class="studyBLockRight">
-                        <div class="row">
-                            <div class="col-lg-8"></div>
-                            <div class="col-lg-4">
-                                <img src="../images/study1.png" alt="" class="studyBLockLeft__img">
-                            </div>
-                        </div>
-                    </div>
+            <div class="item">
+                <div class="wrapper">
+                    <img src="../images/study0.png" alt="">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-10">
-                    <div class="studyBLockLeft">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <img src="../images/study2.png" alt="" class="studyBLockLeft__img">
-                            </div>
-                        </div>
-                    </div>
+            <div class="item">
+                <div class="wrapper">
+                    <img src="../images/study0.png" alt="">
                 </div>
-                <div class="col-lg-2"></div>
             </div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-10">
-                    <div class="studyBLockRight">
-                        <div class="row">
-                            <div class="col-lg-8"></div>
-                            <div class="col-lg-4">
-                                <img src="../images/study1.png" alt="" class="studyBLockLeft__img">
-                            </div>
-                        </div>
-                    </div>
+            <div class="item">
+                <div class="wrapper">
+                    <img src="../images/study0.png" alt="">
+                </div>
+            </div>
+            <div class="item">
+                <div class="wrapper">
+                    <img src="../images/study0.png" alt="">
                 </div>
             </div>
         </div>
@@ -76,11 +46,39 @@
 <script>
 
 export default {
-  name: 'study'
+  name: 'study',
+  async created() {
+    //const respones = await fetch(this.url.AboutJSON)
+    //const data = await respones.json() 
+  }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.item {
+    display: flex;
+    &:nth-child(2n) {
+        justify-content: flex-end;
+
+        .wrapper {
+            justify-content: flex-end;
+        }
+    }
+}
+.item .wrapper{
+    display: flex;
+
+    width: 100%;
+    height: 200px;
+    max-width: 900px;
+
+    margin-top: 50px;
+    background: linear-gradient(90deg, #2C3846 0%, #417398 53.39%, rgba(97, 139, 170, 0.8) 100%, rgba(97, 139, 170, 0.8) 100%);
+
+    img {
+        width: 300px;
+    }
+}
 .studyBack{
     background-image: url(../images/StudyBG.png);
     height: 600px;
@@ -103,19 +101,5 @@ export default {
     margin-top: 30px;
     margin-bottom: 80px;
 }
-.studyBLockLeft{
-    background: linear-gradient(90deg, #2C3846 0%, #417398 53.39%, rgba(97, 139, 170, 0.8) 100%, rgba(97, 139, 170, 0.8) 100%);
-    max-width: 800px;
-    height: 200px;
-    margin-top: 50px;
-}
-.studyBLockRight{
-    background: linear-gradient(0deg, rgba(44, 56, 70, 0.44), rgba(44, 56, 70, 0.44)), linear-gradient(90deg, #618BAA 0%, #618BAA 53.39%, #2C3846 100%);
-    max-width: 800px;
-    height: 200px;
-    margin-top: 50px;
-}
-.studyBLockLeft__img{
-    width: 300px;
-}
+
 </style>
