@@ -30,7 +30,6 @@ export default {
     getHashtags(){
       axios.get(this.url.HomeApiLink).then((response) => {
           this.HomeContent = response.data[0].Constructor[1].advantage;
-          console.log(this.HomeContent)
       });
     },
   },
