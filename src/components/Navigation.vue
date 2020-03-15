@@ -76,6 +76,7 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
+  position: absolute;
   background: rgba(97, 139, 170, 0.78);
   font-size: 18px;
   margin: 8px;

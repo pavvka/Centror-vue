@@ -1,9 +1,11 @@
 <template>
     <section class="ourParallax">
-    <div class="container">
+    <div class="container-fluid">
       <div  v-parallax.modifier="0.3" class="parralax">
-      <img src="../images/parallax.jpg" alt="" class="image">
-      <div class="row">
+        <img src="../images/parallax.jpg" alt="" class="image">
+      </div>
+      <div class="parallax-content">
+        <div class="row">
         <div class="col-lg-4">
           <div class="parallaxTitle">
             {{HomeContent.Title}}
@@ -17,7 +19,7 @@
           </div>
         </div>
       </div>
-    </div>
+      </div>
     </div>
     </section>
 </template>
@@ -50,9 +52,21 @@ export default {
 }
 </script>
 
-<style scoped>
-.container {
+<style lang="scss" scoped>
+.parallax-content {
+  top: 0;
+  position: absolute;
+  z-index: 5;
+}
+.container-fluid {
+  position: relative;
+  padding: 0;
   overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 .headerwrap{
   display: block;
