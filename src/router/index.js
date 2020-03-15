@@ -10,6 +10,7 @@ import Case from '@/views/Case.vue'
 import Club from '@/views/Club.vue'
 import ArticleList from '@/views/ArticleList.vue'
 import Article from '@/views/Article.vue'
+import Search from '@/views/Search.vue'
 
 Vue.use(VueRouter)
 
@@ -79,6 +80,11 @@ const routes = [
     name: 'article-detail',
     component: Article
   },
+  {
+    path: '/search',
+    name: 'search',
+    component: Search
+  }
 ]
 
 const router = new VueRouter({
