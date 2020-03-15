@@ -12,7 +12,7 @@
         :key="index"
         class="item">
         <div class="row marg">
-          <router-link class="trainingLink" :to="`/training/${training.id}`">
+          <a :href="`/training/${training.id}`" class="trainingLink">
             <div class="training">
             <div class="col-lg-6">
               
@@ -28,7 +28,7 @@
                 </div>
               </div>
             </div>
-          </router-link>
+          </a>
         </div>
       </div>
     </div>
