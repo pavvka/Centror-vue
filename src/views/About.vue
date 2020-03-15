@@ -104,7 +104,6 @@ export default {
 
     this.About = data[0]
     this.styleObject.background = 'url(' + this.host + this.About.Header_img.url + ')';
-
   }
 
 }
