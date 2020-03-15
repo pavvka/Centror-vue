@@ -7,6 +7,7 @@ Vue.use(Vuex)
 let baseurl='http://localhost:1337'
 export default new Vuex.Store({
   state: {
+    search: '',
     api : {
       hosturl: baseurl,
       about: baseurl + '/info-blocks',
@@ -21,16 +22,25 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    SET_SEARCH(state,search){
+      state.search = search
+    },
     SET_API(state,api){
       state.api = api
     }
   },
   actions: {
+    writeSearch(context, newSearch){
+      context.commit('SET_SEARCH', newSearch)
+    },
     writeApi(context, newApi){
       context.commit('SET_API', newApi)
     }
   },
   getters: {
+    takeSearch(state){
+      return state.search
+    },
     takeProgramm(state){
       return state.api.programlink
     },
