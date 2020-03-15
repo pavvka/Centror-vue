@@ -1,6 +1,12 @@
 <template>
+<div>
   <nav class="navbar navbar-expand-lg navbar-dark">
     <router-link class="navbar-brand" to="/">{{navBrand}}</router-link>
+    <button 
+          v-on:click="search__open"
+          class="search__button">
+        <img class="search__image" src="../images/Search_Icon.png" >
+    </button>
     <button
       class="navbar-toggler"
       type="button"
@@ -57,25 +63,133 @@
         </div>
     </div>
   </nav>
+    <div id="div_searcher" class="seach_container search__container_disable">
+      <input v-model="searchF" id="search_inDiv" type="text" class="form-control" placeholder="Поиск по сайту...">
+      <button 
+            v-on:click="search__reload"
+            class="search__image_incontainer">
+          <img class="search__image" src="../images/Search_Icon.png" >
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'navigation',
+  data () {
+    return {
+      searchF: ''
+    }
+  },
   props: {
     navList: Object,
     navBrand: String
   },
   methods: {
-    // route(){
-    //   this.$router.push('/training');
-    // }
-  }
+    search__open: function (event){
+      var element = document.getElementById("div_searcher");
+      element.classList.remove("search__container_disable");
+      element.classList.add("slide-in-top");
+
+    },
+    search__reload: function (event){
+      this.createLocalStorage();
+      this.$router.push('/search');
+    },
+    takeSearch(){
+          return this.$store.getters.takeSearch;
+    },
+    rewriteTokens(){
+      if(this.searchF){
+          this.$store.dispatch('writeSearch', this.searchF)
+        }
+    },
+    createLocalStorage(){
+        this.rewriteTokens()
+        window.localStorage.setItem('search',this.takeSearch())
+    },
+  },
 }
 </script>
 
+<style>
+.search__container_disable{
+  display: none;
+}
+.slide-in-top {
+	-webkit-animation: slide-in-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.seach_container{
+  z-index: 1;
+  margin-left:40px;
+  margin-top: -8px;
+  background: rgba(97, 139, 170, 0.78);
+  border:#595C61;
+  border-radius: 0px 0px 10px 10px;
+  height: 35px;
+  width: 290px;
+}
+.form-control{
+  position: relative;
+  top: 5px;
+  width: 240px;
+  left: 10px;
+  height: 25px;
+  background: #4D677E;
+  border-radius: 2px 0px 0px 2px;
+  border-color:#4D677E;
+  color: #000000;
+}
+.search__button{
+  background: transparent;
+  border: none !important;
+  font-size:0;
+}
+.search__image {
+  width: 20px;
+}
+.search__image_incontainer {
+  position: relative;
+  background: transparent;
+  border: none !important;
+  font-size:0;
+  left: 250px;
+  top:-25px;
+}
+</style>
+
 <style lang="scss" scoped>
 .navbar {
+  z-index: 2;
   background: rgba(97, 139, 170, 0.78);
   font-size: 18px;
   margin: 8px;
