@@ -3,22 +3,22 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-//let baseurl='https://api.centror.ru';
-let baseurl='http://localhost:1337'
+//let baseurl='https://api.centror.ru/';
+let baseurl='http://localhost:1337/'
 export default new Vuex.Store({
   state: {
     search: '',
     api : {
       hosturl: baseurl,
-      about: baseurl + '/info-blocks',
-      programlink: baseurl + '/programs',
-      articlelink: baseurl + '/articles',
-      subcategorieslink: baseurl + '/subcategories',
-      caseslink: baseurl + '/cases',
-      footherlink: baseurl + '/futers',
-      foothersocialslink: baseurl + '/socials',
-      contactslink: baseurl + '/contacts',
-      homelink: baseurl + '/mains',
+      about: baseurl + 'info-blocks',
+      programlink: baseurl + 'programs',
+      articlelink: baseurl + 'articles',
+      subcategorieslink: baseurl + 'subcategories',
+      caseslink: baseurl + 'cases',
+      footherlink: baseurl + 'futers',
+      foothersocialslink: baseurl + 'socials',
+      contactslink: baseurl + 'contacts',
+      homelink: baseurl + 'mains',
     }
   },
   mutations: {

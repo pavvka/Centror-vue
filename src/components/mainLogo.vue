@@ -1,20 +1,20 @@
 <template>
     <div class="content">
     <div id="kek">
-      <vue-particles 
-      style="width: 100%;" 
-      color="#dedede" 
-      class="back" 
-      :particlesNumber="100"
+      <vue-particles
+      color="#dedede"
+      class="back"
+      style="width: 100%"
+      :particlesNumber="60"
       :particleOpacity="0.7"
       shapeType="circle"
-      :particleSize="4"
+      :particleSize="7"
       linesColor="#dedede"
       :linesWidth="1"
       :lineLinked="true"
       :lineOpacity="0.4"
-      :linesDistance="150"
-      :moveSpeed="3"
+      :linesDistance="200"
+      :moveSpeed="1"
       :hoverEffect="true"
       hoverMode="grab"
       :clickEffect="true"

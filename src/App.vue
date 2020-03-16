@@ -46,7 +46,7 @@ export default {
 
   min-height: 100vh;
 
-  background-color: #384455;
+  background-image: linear-gradient(269.77deg, #2A3341 0.3%, #2D3544 1.01%, #2E3746 4.83%, #303C4C 11.55%, #364252 28.98%, #384556 50.45%, #364252 75.79%, #303C4C 89.15%, #2C3846 94.92%, #2D3946 98.92%, #252D39 99.57%);
   color: #2c3e50;
 
   font-family: "Avenir", Helvetica, Arial, sans-serif;
