@@ -1,5 +1,5 @@
 <template>
-<div>
+<div style="nav-bar">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <router-link class="navbar-brand" to="/">{{navBrand}}</router-link>
     <button
@@ -209,9 +209,10 @@ export default {
 
 
 .seach_container{
+  position: relative;
   z-index: 1;
-  margin-left:40px;
-  margin-top: -8px;
+  left:40px;
+  top: 78px;
   background: rgba(97, 139, 170, 0.78);
   border:#595C61;
   border-radius: 0px 0px 10px 10px;
@@ -249,6 +250,7 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
+  width: 97%;
   position: absolute;
   background: rgba(97, 139, 170, 0.78);
   font-size: 18px;
