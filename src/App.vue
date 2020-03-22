@@ -62,9 +62,11 @@ export default {
     margin: 2rem 0;
     min-height: 70vh;
   }
+  //Change navbar posit
   .posit{
     margin: 0;
     width: 100%;
+    // top: -10px;
   }
   @media (min-width: 990px) {
     // .posit{
