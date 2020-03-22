@@ -92,6 +92,7 @@ export default {
     min-height: 400px;
     background: linear-gradient(0deg, #2C3846, #2C3846), linear-gradient(179.82deg, rgba(97, 139, 170, 0.44) 7.58%, rgba(58, 71, 90, 0) 99.54%);
     border-radius: 10px;
+    margin-top: 50px;
 }
 .contact__peace{
     margin-top: 60px;

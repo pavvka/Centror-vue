@@ -98,6 +98,7 @@ export default {
   color: #fff;
   text-align: center;
   margin-top: 230px;
+  
 }
 .content {
   position: relative;
