@@ -97,6 +97,7 @@ export default {
   font-size: 18px;
   color: #fff;
   text-align: center;
+  margin-top: 230px;
 }
 .content {
   position: relative;
@@ -110,5 +111,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.clock{
+  margin-top: 230px;
 }
 </style>
