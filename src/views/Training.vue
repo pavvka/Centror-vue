@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col col-12">
-          <h1>{{training.Program_Name}}</h1>
+          <h1 class="program__name">{{training.Program_Name}}</h1>
           <h3>Никогда не поздно научиться. Сделай это сегодня.</h3>
         </div>
       </div>
@@ -188,6 +188,7 @@ export default {
 </script>
 
 <style>
+
 .vdp-datepicker *{
   background: #595C61;
   color: #fff;
@@ -200,6 +201,9 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+.program__name{
+  margin-top: 30px;
+}
 .training {
   display: flex;
   flex-direction: column;

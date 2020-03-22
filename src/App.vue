@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navigation
-      class="posit"
+      
       :isActive="isActive"
       v-bind:class="{ active: isActive }"
       nav-brand="Centor"
@@ -66,6 +66,7 @@ export default {
   .posit{
     margin: 0;
     width: 100%;
+    
     // top: -10px;
   }
   @media (min-width: 990px) {

@@ -3,9 +3,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <router-link class="articleLink" :to="`/article`">
-            ← Вернуться к статьям
-          </router-link>
+          <div class="article-link">
+            <router-link class="articleLink" :to="`/article`">
+              ← Вернуться к статьям
+            </router-link>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -55,6 +57,9 @@ export default {
 </script>
 
 <style scoped>
+.article-link{
+  margin-top: 30px;
+}
 .articleLink{
   color: #fff;
   font-family: Montserrat;

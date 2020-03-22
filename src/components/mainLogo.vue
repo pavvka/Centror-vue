@@ -90,7 +90,7 @@ export default {
     margin-left: auto;
 }
 #kek {
-  min-height: 80vh;
+
 }
 .mainText{
   font-family: Montserrat;
@@ -98,7 +98,7 @@ export default {
   color: #fff;
   text-align: center;
   margin-top: 230px;
-  
+
 }
 .content {
   position: relative;

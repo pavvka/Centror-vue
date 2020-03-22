@@ -60,7 +60,7 @@ export default {
 <style scoped>
 .ourCases{
     background-image: url('../images/CasesBackground.png');
-    min-height: 800px;
+    min-height: 650px;
 }
 .goodCases{
     color:#fff;
