@@ -37,21 +37,12 @@ export default {
       url: {
           HomeApiLink: this.$store.getters.takeHome,
           SubcategoriesApilink: this.$store.getters
-      },
-      items: [
-        // {name: 'Kin Khao', text:"Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация"},
-        // {name: 'Jū-Ni', text:"Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация"},
-        // {name: 'Delfina', text:"Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация"},
-        // {name: 'San Tung', text:"Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация"},
-        // {name: 'Anchor Oyster Bar', text:"Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация"},
-        // {name: 'Locanda', text:"Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация"},
-        // {name: 'Garden Creamery', text:"Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация Краткая аннотация"},
-      ]
+      }
     }
   },
     computed: {
     atEndOfList() {
-      return this.currentOffset <= (this.paginationFactor * -1) * (this.items.length - this.windowSize);
+      return this.currentOffset <= (this.paginationFactor * -1) * (this.HomeContent.length - this.windowSize);
     },
     atHeadOfList() {
       return this.currentOffset === 0;
@@ -62,7 +53,7 @@ export default {
       // Find a more elegant way to express the :style. consider using props to make it truly generic
       if (direction === 1 && !this.atEndOfList) {
         this.currentOffset -= this.paginationFactor;
-        console.log("scrolled")
+        
       } else if (direction === -1 && !this.atHeadOfList) {
         this.currentOffset += this.paginationFactor;
       }
@@ -70,7 +61,6 @@ export default {
     getHashtags(){
       axios.get(this.url.HomeApiLink).then((response) => {
           this.HomeContent = response.data[0].Constructor[3].favorited_subcategories;
-          console.log(this.HomeContent)
       });
     },
     // vueSlickFuller(){
