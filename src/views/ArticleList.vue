@@ -87,8 +87,12 @@ export default {
   font-style: normal;
   font-weight: normal;
 }
+.training:hover{
+    background: rgba(97, 139, 170, 0.7);
+  transition: 300ms;
+}
 .trainingLink:hover{
-
+  
   text-decoration: none;
 }
 .training__title{
