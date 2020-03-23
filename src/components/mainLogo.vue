@@ -22,7 +22,7 @@
       ></vue-particles>
     </div>
     <div class="container-fluid">
-      <div class="row">
+      <div class="row firstContent">
           <div class="col-md-1"></div>
           <div class="col-md-5">
             <div class="clock">
@@ -97,7 +97,7 @@ export default {
   font-size: 18px;
   color: #fff;
   text-align: center;
-  margin-top: 230px;
+ 
 
 }
 .content {
@@ -113,7 +113,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.clock{
-  margin-top: 230px;
+.firstContent{
+  margin-top: 40vh;
 }
 </style>

@@ -58,6 +58,9 @@ export default {
     width: 30px;
     height: 30px;
 }
+.ourAdvantages{
+  margin-top: 20vh;
+}
  @media (max-width: 991px) {
     .posit{
       top: 100px;
