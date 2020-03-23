@@ -6,10 +6,10 @@
     <div class="card-carousel">
       <div class="card-carousel--overflow-container">
         <div class="card-carousel-cards" :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
-          <div class="card-carousel--card" v-for="(item,index) in items" :key="index"><img src="https://placehold.it/330x180"/>
+          <div class="card-carousel--card" v-for="(item,index) in HomeContent" :key="index"><img src="https://placehold.it/330x180"/>
             <div class="card-carousel--card--footer">
-              <p class="program__title">{{ item.name }}</p>
-              <p class="program__text">{{ item.text }}</p>
+              <p class="program__title">{{ item.Title }}</p>
+              <p class="program__text">{{ item.Text }}</p>
             </div>
           </div>
         </div>
@@ -62,6 +62,7 @@ export default {
       // Find a more elegant way to express the :style. consider using props to make it truly generic
       if (direction === 1 && !this.atEndOfList) {
         this.currentOffset -= this.paginationFactor;
+        console.log("scrolled")
       } else if (direction === -1 && !this.atHeadOfList) {
         this.currentOffset += this.paginationFactor;
       }
@@ -72,17 +73,17 @@ export default {
           console.log(this.HomeContent)
       });
     },
-    vueSlickFuller(){
-      for (let i = 0; i < this.HomeContent.length; i++) {
-        this.items[i].name = this.HomeContent[i].Title
-        this.items[i].text = this.HomeContent[i].Text
-        console.log("kek")
-      }
-    }
+    // vueSlickFuller(){
+    //   for (let i = 0; i < this.HomeContent.length; i++) {
+    //     this.items[i].name = this.HomeContent[i].Title
+    //     this.items[i].text = this.HomeContent[i].Text
+    //     console.log("kek")
+    //   }
+    // }
   },
   beforeMount(){
-    this.getHashtags(),
-    this.vueSlickFuller()
+    this.getHashtags()
+    // this.vueSlickFuller()
   },
 }
 </script>
