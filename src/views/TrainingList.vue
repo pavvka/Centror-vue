@@ -14,6 +14,7 @@
         <div class="row marg">
           <a :href="`/training/${training.id}`" class="trainingLink">
             <div class="training">
+              <div class="row">
             <div class="col-lg-6">
               
                 <h3 class="training__title">{{training.Program_Name}}</h3>
@@ -26,6 +27,7 @@
                 <div v-for="(lector, index) in training.lectors" :key="index" >
                   {{lector.First_Name}} {{lector.Last_Name}}
                 </div>
+              </div>
               </div>
             </div>
           </a>
@@ -103,7 +105,7 @@ export default {
   background: #435A6E;
   border-radius: 10px;
   width: 100%;
-  padding: 10px;
+  padding: 20px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
