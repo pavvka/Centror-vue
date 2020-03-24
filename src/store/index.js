@@ -19,6 +19,7 @@ export default new Vuex.Store({
       foothersocialslink: baseurl + 'socials',
       contactslink: baseurl + 'contacts',
       homelink: baseurl + 'mains',
+      categorieslink: baseurl + 'categories',
     }
   },
   mutations: {
@@ -49,6 +50,9 @@ export default new Vuex.Store({
     },
     takeSubcategories(state){
       return state.api.subcategorieslink
+    },
+    takeCategories(state){
+      return state.api.categorieslink
     },
     takeHost(state){
       return state.api.hosturl
