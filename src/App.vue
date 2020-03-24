@@ -6,7 +6,12 @@
       v-bind:class="{ active: isActive }"
       nav-brand="Centor"
       :nav-list="{
-        'Услуги': '/training',
+        'Услуги': {
+          'Тренинги': '/training',
+          'Консалтинг' : '/consulting',
+          'Обучение' : '/study',
+          'Бизнес туризм' : '/' //не ебу ч суда
+        },
         'Кейсы': '/cases',
         'Блог': '/article',
         'О нас': '/about',
