@@ -20,6 +20,7 @@ export default new Vuex.Store({
       contactslink: baseurl + 'contacts',
       homelink: baseurl + 'mains',
       categorieslink: baseurl + 'categories',
+      tagsprogramslink: baseurl + 'tags-programs',
     }
   },
   mutations: {
@@ -39,6 +40,9 @@ export default new Vuex.Store({
     }
   },
   getters: {
+    takeTagsProgramms(state){
+      return state.api.tagsprogramslink
+    }, 
     takeSearch(state){
       return state.search
     },
