@@ -138,49 +138,53 @@ export default {
   },
   methods: {
     sub: function(event){
-      // var email_regx = /^[0-9a-z-\.]+\@[0-9a-z-]{2,}\.[a-z]{2,}$/i;
-      // this.errors = [];
-      // this.successful = [];
-      
-      // if(!this.pass){
-      //     this.errors.push('Требуется указать пароль.');
-      // } else {
-      //       if(this.pass.length < 6){
-      //         this.errors.push('Пароль дожен быть длинее 6 символов');
-      //     }
-      // }
-      // if(!this.email){
-      //     this.errors.push('Введите email');
-      // } else {
-      //     if(!email_regx.test(this.email)){
-      //         this.errors.push('Уверены, что email введен верно?');
-      //     }
-      // }
-          
-      // if(this.errors.length == 0){
-          axios.post('https://api.centror.ru/checkout',{
-              "last_name": this.second_name,
-              "first_name": this.first_name,
-              "city": this.city,
-              "email": this.email_adress,
-              "phone": this.phone_number,
-              "program": this.$route.params.id
+        
+          axios.post('https://payment.yandex.net/api/v3/payments',{
+              "async": true,
+              "crossDomain": true,
+              "headers": {
+                "content-type": "application/json",
+                "authorization": "Basic Njc2NDUwOnRlc3RfT2hjWFJ3RFNjZEJrbTdmSWlyRXRxUm5iU2xMY0hURVp6WjJraGNOVjVlSQ==",
+                "idempotence-key": "02347fc4-a1f0-49db-807e-f0d67c2ed5a5",
+              },
+              "data": {
+                "amount": {
+                  "value": "",
+                  "currency": "RUB"
+                },
+                  "confirmation": {
+                  "type": "embedded"
+                },
+                  "capture": true,
+                  "description": "Заказ №72"
+              }
+
+              // "last_name": this.second_name,
+              // "first_name": this.first_name,
+              // "city": this.city,
+              // "email": this.email_adress,
+              // "phone": this.phone_number,
+              // "program": this.$route.params.id
               
           })
           .then(response => { 
-              console.log(response.data);
-              this.second_name = '',
-              this.first_name = '',
-              this.city = '',
-              this.email_adress = '',
-              this.phone_number = '',
-              this.$route.params.id = ''
+              console.log(response);
+              // this.second_name = '',
+              // this.first_name = '',
+              // this.city = '',
+              // this.email_adress = '',
+              // this.phone_number = '',
+              // this.$route.params.id = ''
               // this.$router.push('/auth');
+
+              //window.location.href = "/auth/"+ this.$route.params.id;
           })
           .catch(error => {
               console.log(error.response);
               //this.errors.push('Не верный логин или пароль'); 
           });
+
+
         // }
     }
   }
