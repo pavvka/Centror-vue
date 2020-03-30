@@ -12,7 +12,9 @@
             </select>
           </div>
           <div class="tags" v-for="(Tag, index) in Tags" :key="index" >
-              <span v-bind:id="'tagNum'+index" class="tag closed" v-on:click="TagSorter(index, Tag.id)">{{Tag.tag}}</span>
+            <router-link v-bind:to="'/traningTag/'+Tag.id">
+              <span class="tag">{{Tag.tag}}</span>
+            </router-link>
           </div>
         </div>
       </div>
@@ -51,7 +53,6 @@ export default {
   name: 'app',
     data(){
     return {
-      selectedTagsId: [],
       selectors:'',
       searchQuery:'',
       subcategorySelected: '',
@@ -68,83 +69,52 @@ export default {
   },
   
   methods: {
-    removeElement(array, elem) {
-    var index = array.indexOf(elem);
-      if (index > -1) {
-          array.splice(index, 1);
-      }
-    },
-    TagSorter(x, z){
-      var elclassname = 'tagNum'+x;
-      var element = document.getElementById(elclassname);
-
-      if (element.classList.contains("closed")){
-        element.classList.remove("closed");
-        element.classList.add("tagSelected");
-        this.selectedTagsId.push(z);
-        console.log(this.selectedTagsId);
-      
-      } else {
-      
-        element.classList.remove("tagSelected");
-        element.classList.add("closed");
-        this.removeElement(this.selectedTagsId, z);
-        console.log(this.selectedTagsId);
-      }
-    },
     getHashtags(){
         axios.get(this.url.ProgramApiLink).then((response) => {
             this.Programs = response.data;
-            console.log(this.Programs);
         });
         axios.get(this.url.TagsProgrammsApiLink).then((response) => {
             this.Tags = response.data;
         });
     },
-
   },
     beforeMount(){
       this.getHashtags()
  },
   computed: {
     filteredResources (){
-      if (typeof this.selectedTagsId != 'undefined' && this.selectedTagsId.length > 0){
-        // console.log(this.Programs.tags_programs[0].indexOf(this.selectedTagsId));
-
-      } else {
-        if (this.searchQuery && this.searchQuery.length >= 0) {
-          //Program names finding
-          var result = this.Programs.filter((item,i)=>{
-              return item.Program_Name.toLowerCase().match(this.searchQuery.toLowerCase())      
+      if (this.searchQuery && this.searchQuery.length >= 0) {
+        //Program names finding
+        var result = this.Programs.filter((item,i)=>{
+            return item.Program_Name.toLowerCase().match(this.searchQuery.toLowerCase())      
+        })
+        //if we didnt found programs:
+        if (result[0] == undefined){
+          console.log("Found nothing in program names")
+          //try fo find lesctors names
+            return this.Programs.filter((item,i)=>{
+            for (let j = 0; j < this.Programs[i].lectors.length; j++) {
+              if(this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase()) != null){
+                  return this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase())
+              }
+            }
           })
-          //if we didnt found programs:
-          if (result[0] == undefined){
-            console.log("Found nothing in program names")
-            //try fo find lesctors names
-              return this.Programs.filter((item,i)=>{
-              for (let j = 0; j < this.Programs[i].lectors.length; j++) {
-                if(this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase()) != null){
-                    return this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase())
-                }
-              }
-            })
-          }
-          // if we found program names, return it)
-          else{
-            console.log(result);
-            return result
-          }
+        }
+        // if we found program names, return it)
+        else{
+          console.log(result);
+          return result
+        }
+      } else {
+        if (this.selectors != ''){
+            if (this.selectors == 'cheaper'){ 
+              return this.Programs.sort((a, b) => parseFloat(a.Price) - parseFloat(b.Price));
+            }
+            if(this.selectors == 'expensive'){
+              return this.Programs.sort((a, b) => parseFloat(b.Price) - parseFloat(a.Price));
+            }
         } else {
-          if (this.selectors != ''){
-              if (this.selectors == 'cheaper'){ 
-                return this.Programs.sort((a, b) => parseFloat(a.Price) - parseFloat(b.Price));
-              }
-              if(this.selectors == 'expensive'){
-                return this.Programs.sort((a, b) => parseFloat(b.Price) - parseFloat(a.Price));
-              }
-          } else {
-            return this.Programs;
-          }
+          return this.Programs;
         }
       }
     },
@@ -171,13 +141,6 @@ export default {
     margin-right: 10px;
     margin-bottom: 10px
 }
-.tagSelected{
-  background: rgba(97, 139, 170, 0.78);
-    -webkit-box-shadow: 0px 0px 29px 1px rgba(97, 139, 170, 0.78);
-    -moz-box-shadow: 0px 0px 29px 1px rgba(97, 139, 170, 0.78);
-    box-shadow: 0px 0px 29px 1px rgba(97, 139, 170, 0.78);
-    text-decoration: none;
-}
 .tag:hover{
     background: rgba(97, 139, 170, 0.78);
     -webkit-box-shadow: 0px 0px 29px 1px rgba(97, 139, 170, 0.78);
@@ -192,11 +155,9 @@ export default {
   background-color: transparent;
   border-color: transparent;
 }
-
 .sdrop option{
   background-color: #435A6E;
 }
-
 .training{
   color: #fff;
   text-align: left;
@@ -209,7 +170,6 @@ export default {
   font-weight: normal;
 }
 .trainingLink:hover{
-
   text-decoration: none;
 }
 .training__title{
