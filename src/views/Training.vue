@@ -56,8 +56,8 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Контактная информация</h5>
           </div>
-            <div class="modal-body">
-              <div class="input-group" style="margin-top:20px;">
+            <div class="modal-body" style="padding-bottom:0">
+              <div class="input-group">
                 <p class="inputBlock">
                   <label for="SecondName">Фамилия:</label>
                   <input v-model="second_name" id="SecondName" type="text" class="form-control" style="margin-right:20px">
@@ -67,7 +67,7 @@
                   <input v-model="email_adress" id="email" type="text" class="form-control">
                 </p>
             </div>
-              <div class="input-group" style="margin-top:20px;">
+              <div class="input-group">
                 <p class="inputBlock">
                   <label for="name">Имя:</label>
                   <input v-model="first_name" id="name" type="text" class="form-control" style="margin-right:20px">
@@ -86,7 +86,7 @@
                 </p>
             </div>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer" style="padding-top:0">
             <button v-on:click="sub" type="button" class="submitButton">Перейти к оплате</button>
           </div>
           <div v-for="(err,index) in errors" :key="index">
@@ -321,6 +321,5 @@ label{
 #cityid{
   width: 230px;
 }
-
 
 </style>
