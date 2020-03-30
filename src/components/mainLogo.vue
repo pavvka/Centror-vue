@@ -101,9 +101,7 @@ export default {
 .text-al{
     margin-left: auto;
 }
-#kek {
 
-}
 .mainText{
   font-family: Montserrat;
   font-size: 18px;
