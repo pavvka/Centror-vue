@@ -32,8 +32,9 @@ export default {
           this.HomeContent = response.data[0].Constructor[1].advantage;
           
           for (let i = 0; i < response.data[0].Constructor.length; i++) {
-            if(response.data[0].Constructor[i]["__component"] === "block.favorited-subcategories"){
-                this.HomeContent = response.data[0].Constructor[i]["favorited_subcategories"]
+            if(response.data[0].Constructor[i]["__component"] === "block.advatages"){
+              console.log(this.HomeContent = response.data[0])
+                this.HomeContent = response.data[0].Constructor[i]["advantage"]
                 break
             }
           }
