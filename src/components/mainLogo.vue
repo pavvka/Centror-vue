@@ -4,7 +4,7 @@
       <vue-particles
       color="#dedede"
       class="back"
-      style="width: 100%"
+      style="width: 100%; height: 50%;"
       :particlesNumber="60"
       :particleOpacity="0.7"
       shapeType="circle"
@@ -19,6 +19,7 @@
       hoverMode="grab"
       :clickEffect="true"
       clickMode="push"
+      height =  "50%"
       ></vue-particles>
     </div>
     <div class="container-fluid">
@@ -78,10 +79,17 @@ export default {
           this.HomeContent = response.data;
       });
     },
+    lol(){
+      var arr = document.getElementsByClassName("particles-js-canvas-el");
+      console.log(arr)
+    }
   },
   beforeMount(){
     this.getHashtags()
   },
+  mounted(){
+    this.lol()
+  }
 }
 </script>
 
@@ -115,5 +123,9 @@ export default {
 }
 .firstContent{
   margin-top: 40vh;
+}
+.particles-js-canvas-el{
+  position: fixed;
+  height: 300px;
 }
 </style>
