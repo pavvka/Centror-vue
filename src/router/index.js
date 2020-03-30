@@ -12,6 +12,7 @@ import ArticleList from '@/views/ArticleList.vue'
 import Article from '@/views/Article.vue'
 import Search from '@/views/Search.vue'
 import TraningListTags from '@/views/TraningListTags.vue'
+import Auth from '@/views/Auth.vue'
 
 Vue.use(VueRouter)
 
@@ -90,6 +91,11 @@ const routes = [
     path: '/traningTag/:id',
     name: 'traningTag',
     component: TraningListTags
+  },
+  {
+    path: '/auth/:id',
+    name: 'auth',
+    component: Auth
   }
 ]
 
