@@ -124,7 +124,7 @@ export default {
   align-items: center;
 }
 .firstContent{
-  margin-top: 40vh;
+  margin-top: 80vh;
 }
 .particles-js-canvas-el{
   position: fixed;
