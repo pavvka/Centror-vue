@@ -102,6 +102,7 @@
 import axios from 'axios'
 import Datepicker from 'vuejs-datepicker';
 import {ru} from 'vuejs-datepicker/dist/locale'
+import { v4 as uuidv4 } from 'uuid';
 export default {
   name: 'training',
   components: {
@@ -138,14 +139,74 @@ export default {
   },
   methods: {
     sub: function(event){
+
+
+      // var data = JSON.stringify({
+      //   "amount": {
+      //     "value": "2.00",
+      //     "currency": "RUB"
+      //   },
+      //   "payment_method_data": {
+      //     "type": "bank_card"
+      //   },
+      //   "confirmation": {
+      //     "type": "redirect",
+      //     "return_url": "https://www.merchant-website.com/return_url"
+      //   },
+      //   "description": "Заказ №72"
+      // });
+
+      // var xhr = new XMLHttpRequest();
+      // xhr.withCredentials = true;
+
+      // xhr.addEventListener("readystatechange", function () {
+      //   if (this.readyState === 4) {
+      //     console.log(this.responseText);
+      //   }
+      // });
+
+      // xhr.open("POST", "https://payment.yandex.net/api/v3/payments");
+      // xhr.setRequestHeader("content-type", "application/json");
+      // xhr.setRequestHeader("authorization", "Basic Njc2NDUwOnRlc3RfT2hjWFJ3RFNjZEJrbTdmSWlyRXRxUm5iU2xMY0hURVp6WjJraGNOVjVlSQ==");
+      // xhr.setRequestHeader("idempotence-key", "02347fc4-a1f0-49db-807e-f0d67c2ed5a5");
+      // xhr.setRequestHeader("cache-control", "no-cache");
+      // xhr.setRequestHeader("postman-token", "ab7512de-557e-e07a-3eeb-3b88451854fb");
+
+      // xhr.send(data);
+
+
+        // fetch("https://payment.yandex.net/api/v3/payments", {
+        //   body: {
+        //       amount: {
+        //         value: "2.00",
+        //         currency: "RUB"
+        //       },
+        //       payment_method_data: {
+        //         type:"bank_card"
+        //       },
+        //       confirmation: {
+        //         type: "redirect",
+        //         return_url: "https://www.merchant-website.com/return_url"
+        //       },
+        //       description: "Заказ №72"      
+        //       },
+        //       headers: {
+        //         Authorization: "Basic Njc2NDUwOnRlc3RfT2hjWFJ3RFNjZEJrbTdmSWlyRXRxUm5iU2xMY0hURVp6WjJraGNOVjVlSQ==",
+        //         "Content-Type": "application/json",
+        //         "Idempotence-Key": uuidv4()
+        //       },
+        //       method: "POST"
+        // })
+
         
-          axios.post('https://payment.yandex.net/api/v3/payments',{
-              "async": true,
-              "crossDomain": true,
+          axios.post('https://payment.yandex.net/api/v3/payments/',{
+              
               "headers": {
+                "async": true,
+                'Access-Control-Allow-Origin': '*',
                 "content-type": "application/json",
                 "authorization": "Basic Njc2NDUwOnRlc3RfT2hjWFJ3RFNjZEJrbTdmSWlyRXRxUm5iU2xMY0hURVp6WjJraGNOVjVlSQ==",
-                "idempotence-key": "02347fc4-a1f0-49db-807e-f0d67c2ed5a5",
+                "idempotence-key": uuidv4(),
               },
               "data": {
                 "amount": {
@@ -185,7 +246,6 @@ export default {
           });
 
 
-        // }
     }
   }
 }
