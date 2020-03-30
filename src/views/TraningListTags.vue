@@ -1,24 +1,7 @@
 <template>
   <div class="training-list">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="search__block">
-            <input class="search" type="texts" placeholder="Поиск по названию или преподователю..." v-model="searchQuery">
-            <select v-model="selectors" class="sdrop browser-default custom-select">
-              <option value="" selected>По умолчанию</option>
-              <option value="cheaper">Дешевле</option>
-              <option value="expensive">Дороже</option>
-            </select>
-          </div>
-          <div class="tags" v-for="(Tag, index) in Tags" :key="index" >
-            <router-link v-bind:to="'/traningTag/'+Tag.id">
-              <span class="tag">{{Tag.tag}}</span>
-            </router-link>
-          </div>
-        </div>
-      </div>
-      <div v-for="(training, index) in filteredResources"
+    <div style="margin-top:30px;" class="container">
+      <div v-for="(training, index) in Tags.programs"
         :key="index"
         class="item">
         <div class="row marg">
@@ -32,12 +15,13 @@
                 <p class="training__price">Стоимость программы: {{training.Price}} рублей</p>
 
               </div>
-              <div class="col-lg-6">
+              <!-- <div class="col-lg-6">
                 <h3 class="teacher__title">Преподавательский состав:</h3>
                 <div v-for="(lector, index) in training.lectors" :key="index" >
                   {{lector.First_Name}} {{lector.Last_Name}}
                 </div>
-              </div>
+              </div> 
+              -->
               </div>
             </div>
           </a>
@@ -61,8 +45,6 @@ export default {
       test: [],
       schet: 0,
       url: {
-          ProgramApiLink: this.$store.getters.takeProgramm,
-          SubcategoriesApilink: this.$store.getters,
           TagsProgrammsApiLink: this.$store.getters.takeTagsProgramms,
       },
     }
@@ -70,55 +52,16 @@ export default {
   
   methods: {
     getHashtags(){
-        axios.get(this.url.ProgramApiLink).then((response) => {
-            this.Programs = response.data;
-        });
-        axios.get(this.url.TagsProgrammsApiLink).then((response) => {
+        axios.get(this.url.TagsProgrammsApiLink + '/' + this.$route.params.id).then((response) => {
             this.Tags = response.data;
+            console.log(this.Tags);
         });
     },
+
   },
     beforeMount(){
       this.getHashtags()
  },
-  computed: {
-    filteredResources (){
-      if (this.searchQuery && this.searchQuery.length >= 0) {
-        //Program names finding
-        var result = this.Programs.filter((item,i)=>{
-            return item.Program_Name.toLowerCase().match(this.searchQuery.toLowerCase())      
-        })
-        //if we didnt found programs:
-        if (result[0] == undefined){
-          console.log("Found nothing in program names")
-          //try fo find lesctors names
-            return this.Programs.filter((item,i)=>{
-            for (let j = 0; j < this.Programs[i].lectors.length; j++) {
-              if(this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase()) != null){
-                  return this.Programs[i].lectors[j].First_Name.toLowerCase().match(this.searchQuery.toLowerCase())
-              }
-            }
-          })
-        }
-        // if we found program names, return it)
-        else{
-          console.log(result);
-          return result
-        }
-      } else {
-        if (this.selectors != ''){
-            if (this.selectors == 'cheaper'){ 
-              return this.Programs.sort((a, b) => parseFloat(a.Price) - parseFloat(b.Price));
-            }
-            if(this.selectors == 'expensive'){
-              return this.Programs.sort((a, b) => parseFloat(b.Price) - parseFloat(a.Price));
-            }
-        } else {
-          return this.Programs;
-        }
-      }
-    },
-  }
  
 }
 </script>
@@ -155,9 +98,11 @@ export default {
   background-color: transparent;
   border-color: transparent;
 }
+
 .sdrop option{
   background-color: #435A6E;
 }
+
 .training{
   color: #fff;
   text-align: left;
@@ -170,6 +115,7 @@ export default {
   font-weight: normal;
 }
 .trainingLink:hover{
+
   text-decoration: none;
 }
 .training__title{

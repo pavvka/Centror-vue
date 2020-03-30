@@ -11,6 +11,7 @@ import Club from '@/views/Club.vue'
 import ArticleList from '@/views/ArticleList.vue'
 import Article from '@/views/Article.vue'
 import Search from '@/views/Search.vue'
+import TraningListTags from '@/views/TraningListTags.vue'
 
 Vue.use(VueRouter)
 
@@ -84,6 +85,11 @@ const routes = [
     path: '/search',
     name: 'search',
     component: Search
+  },
+  {
+    path: '/traningTag/:id',
+    name: 'traningTag',
+    component: TraningListTags
   }
 ]
 

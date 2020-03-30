@@ -4,7 +4,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 //let baseurl='https://api.centror.ru/';
-let baseurl='http://45.136.247.192:1488/';
+// let baseurl='http://localhost:1337/'
+let baseurl='http://45.136.247.192:1488/'
 export default new Vuex.Store({
   state: {
     search: '',
@@ -20,6 +21,7 @@ export default new Vuex.Store({
       contactslink: baseurl + 'contacts',
       homelink: baseurl + 'mains',
       categorieslink: baseurl + 'categories',
+      tagsprogramslink: baseurl + 'tags-programs',
     }
   },
   mutations: {
@@ -39,6 +41,9 @@ export default new Vuex.Store({
     }
   },
   getters: {
+    takeTagsProgramms(state){
+      return state.api.tagsprogramslink
+    }, 
     takeSearch(state){
       return state.search
     },
