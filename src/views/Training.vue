@@ -311,7 +311,8 @@ label{
 
 }
 .date{
-  width: 220px;
+  width: 225px;
+  margin-left: 10px;
 }
 #cityid{
   width: 230px;
