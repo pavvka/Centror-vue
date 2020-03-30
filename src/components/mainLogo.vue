@@ -27,14 +27,15 @@
           <div class="col-md-1"></div>
           <div class="col-md-5">
             <div class="clock">
-              <AnalogClock
+              <Clock />
+              <!--<AnalogClock
                 backgroundImage="https://i.ibb.co/LhzMQ3j/Asset-2-1.png"
                 borderImage="https://online-fotoshop.ru/wp-content/uploads/bfi_thumb/dummy-transparent-o62bcwfxu7zofs36kb0sbh4wom52bbxxszhrx8zw4y.png"
                 scaleType="none"
                 handType="line"
                 scaleColor="transparent"
                 class="myClock"
-              />
+              />-->
             </div>
           </div>
           <div class="col-md-6">
@@ -59,10 +60,13 @@
 <script>
 import axios from 'axios'
 import {AnalogClock} from 'vue-analog-clock'
+import Clock from '@/components/Clock'
+
 export default {
   name: 'app',
   components: {
-    AnalogClock
+    AnalogClock,
+    Clock
   },
   data () {
     return {
@@ -97,9 +101,7 @@ export default {
 .text-al{
     margin-left: auto;
 }
-#kek {
 
-}
 .mainText{
   font-family: Montserrat;
   font-size: 18px;
