@@ -169,6 +169,9 @@ export default {
   font-style: normal;
   font-weight: normal;
 }
+.trainingLink{
+  width: 100%;
+}
 .trainingLink:hover{
   text-decoration: none;
 }
