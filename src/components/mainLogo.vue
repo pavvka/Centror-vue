@@ -112,7 +112,7 @@ export default {
 }
 .content {
   position: relative;
-  height: 100vh;
+  height: 95vh;
 }
 .container-fluid {
   position: absolute;
@@ -125,7 +125,7 @@ export default {
   align-items: center;
 }
 .firstContent{
-  margin-top: 50vh;
+  margin-top: 45vh;
 }
 .particles-js-canvas-el{
   position: fixed;
