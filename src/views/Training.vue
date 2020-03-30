@@ -62,7 +62,7 @@
                   <label for="SecondName">Фамилия:</label>
                   <input v-model="second_name" id="SecondName" type="text" class="form-control" style="margin-right:20px">
                 </p>
-                <p class="inputBlock">
+                <p class="inputBlock inputBlockLeft">
                   <label for="email">Адрес электронной почты:</label>
                   <input v-model="email_adress" id="email" type="text" class="form-control">
                 </p>
@@ -72,16 +72,16 @@
                   <label for="name">Имя:</label>
                   <input v-model="first_name" id="name" type="text" class="form-control" style="margin-right:20px">
                 </p>
-                <p class="inputBlock">
+                <p class="inputBlock inputBlockLeft">
                   <label for="number">Контактный телефон:</label>
                   <input v-model="phone_number" id="number" type="text" class="form-control">
                 </p>
                 <p class="inputBlock">
                   <label for="date">Дата рождения:</label>
-                  <datepicker v-model="date_picked" id="date" :language="ru"></datepicker>
+                  <datepicker v-model="date_picked" id="date" :language="ru" class="date"></datepicker>
                 </p>
-                <p class="inputBlock">
-                  <label for="cityid">Город:</label>
+                <p class="inputBlock inputBlockLeft">
+                  <label for="cityid" class="cityLabel">Город:</label>
                   <input v-model="city" id="cityid" type="text" class="form-control">
                 </p>
             </div>
@@ -257,13 +257,16 @@ export default {
 .modalWindow{
   background: linear-gradient(0deg, rgba(97, 139, 170, 0.44), rgba(97, 139, 170, 0.44)), #3D4A5B;
   font-family: Montserrat;
+  width: 520px;
 }
 .modal-header, .modal-body, .modal-footer{
   border: none;
 }
 .inputBlock{
   width: 220px;
-  margin-left: 10px;
+}
+.inputBlockLeft{
+  margin-left: 25px;
 }
 label{
   font-size: 15px;
@@ -280,6 +283,7 @@ label{
   color: #fff;
   border:#595C61;
   height: 25px;
+  width: 230px;
 }
 .submitButton{
   background: #495A67;
@@ -295,6 +299,22 @@ label{
 }
 .facebook__container{
   background: #fff;
+}
+.cityLabel{
+  margin-bottom: 2px;
+}
+label{
+  margin-left: 5px;
+}
+#date{
+  width: 230px;
+
+}
+.date{
+  width: 220px;
+}
+#cityid{
+  width: 230px;
 }
 
 
