@@ -56,37 +56,37 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Контактная информация</h5>
           </div>
-            <div class="modal-body">
-              <div class="input-group" style="margin-top:20px;">
+            <div class="modal-body" style="padding-bottom:0">
+              <div class="input-group">
                 <p class="inputBlock">
                   <label for="SecondName">Фамилия:</label>
                   <input v-model="second_name" id="SecondName" type="text" class="form-control" style="margin-right:20px">
                 </p>
-                <p class="inputBlock">
+                <p class="inputBlock inputBlockLeft">
                   <label for="email">Адрес электронной почты:</label>
                   <input v-model="email_adress" id="email" type="text" class="form-control">
                 </p>
             </div>
-              <div class="input-group" style="margin-top:20px;">
+              <div class="input-group">
                 <p class="inputBlock">
                   <label for="name">Имя:</label>
                   <input v-model="first_name" id="name" type="text" class="form-control" style="margin-right:20px">
                 </p>
-                <p class="inputBlock">
+                <p class="inputBlock inputBlockLeft">
                   <label for="number">Контактный телефон:</label>
                   <input v-model="phone_number" id="number" type="text" class="form-control">
                 </p>
                 <p class="inputBlock">
                   <label for="date">Дата рождения:</label>
-                  <datepicker v-model="date_picked" id="date" :language="ru"></datepicker>
+                  <datepicker v-model="date_picked" id="date" :language="ru" class="date"></datepicker>
                 </p>
-                <p class="inputBlock">
-                  <label for="cityid">Город:</label>
+                <p class="inputBlock inputBlockLeft">
+                  <label for="cityid" class="cityLabel">Город:</label>
                   <input v-model="city" id="cityid" type="text" class="form-control">
                 </p>
             </div>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer" style="padding-top:0">
             <button v-on:click="sub" type="button" class="submitButton">Перейти к оплате</button>
           </div>
           <div v-for="(err,index) in errors" :key="index">
@@ -102,6 +102,7 @@
 import axios from 'axios'
 import Datepicker from 'vuejs-datepicker';
 import {ru} from 'vuejs-datepicker/dist/locale'
+import { v4 as uuidv4 } from 'uuid';
 export default {
   name: 'training',
   components: {
@@ -138,50 +139,113 @@ export default {
   },
   methods: {
     sub: function(event){
-      // var email_regx = /^[0-9a-z-\.]+\@[0-9a-z-]{2,}\.[a-z]{2,}$/i;
-      // this.errors = [];
-      // this.successful = [];
-      
-      // if(!this.pass){
-      //     this.errors.push('Требуется указать пароль.');
-      // } else {
-      //       if(this.pass.length < 6){
-      //         this.errors.push('Пароль дожен быть длинее 6 символов');
-      //     }
-      // }
-      // if(!this.email){
-      //     this.errors.push('Введите email');
-      // } else {
-      //     if(!email_regx.test(this.email)){
-      //         this.errors.push('Уверены, что email введен верно?');
-      //     }
-      // }
-          
-      // if(this.errors.length == 0){
-          axios.post('https://api.centror.ru/checkout',{
-              "last_name": this.second_name,
-              "first_name": this.first_name,
-              "city": this.city,
-              "email": this.email_adress,
-              "phone": this.phone_number,
-              "program": this.$route.params.id
+
+
+      // var data = JSON.stringify({
+      //   "amount": {
+      //     "value": "2.00",
+      //     "currency": "RUB"
+      //   },
+      //   "payment_method_data": {
+      //     "type": "bank_card"
+      //   },
+      //   "confirmation": {
+      //     "type": "redirect",
+      //     "return_url": "https://www.merchant-website.com/return_url"
+      //   },
+      //   "description": "Заказ №72"
+      // });
+
+      // var xhr = new XMLHttpRequest();
+      // xhr.withCredentials = true;
+
+      // xhr.addEventListener("readystatechange", function () {
+      //   if (this.readyState === 4) {
+      //     console.log(this.responseText);
+      //   }
+      // });
+
+      // xhr.open("POST", "https://payment.yandex.net/api/v3/payments");
+      // xhr.setRequestHeader("content-type", "application/json");
+      // xhr.setRequestHeader("authorization", "Basic Njc2NDUwOnRlc3RfT2hjWFJ3RFNjZEJrbTdmSWlyRXRxUm5iU2xMY0hURVp6WjJraGNOVjVlSQ==");
+      // xhr.setRequestHeader("idempotence-key", "02347fc4-a1f0-49db-807e-f0d67c2ed5a5");
+      // xhr.setRequestHeader("cache-control", "no-cache");
+      // xhr.setRequestHeader("postman-token", "ab7512de-557e-e07a-3eeb-3b88451854fb");
+
+      // xhr.send(data);
+
+
+        // fetch("https://payment.yandex.net/api/v3/payments", {
+        //   body: {
+        //       amount: {
+        //         value: "2.00",
+        //         currency: "RUB"
+        //       },
+        //       payment_method_data: {
+        //         type:"bank_card"
+        //       },
+        //       confirmation: {
+        //         type: "redirect",
+        //         return_url: "https://www.merchant-website.com/return_url"
+        //       },
+        //       description: "Заказ №72"      
+        //       },
+        //       headers: {
+        //         Authorization: "Basic Njc2NDUwOnRlc3RfT2hjWFJ3RFNjZEJrbTdmSWlyRXRxUm5iU2xMY0hURVp6WjJraGNOVjVlSQ==",
+        //         "Content-Type": "application/json",
+        //         "Idempotence-Key": uuidv4()
+        //       },
+        //       method: "POST"
+        // })
+
+        
+          axios.post('https://payment.yandex.net/api/v3/payments/',{
+              
+              "headers": {
+                "async": true,
+                'Access-Control-Allow-Origin': '*',
+                "content-type": "application/json",
+                "authorization": "Basic Njc2NDUwOnRlc3RfT2hjWFJ3RFNjZEJrbTdmSWlyRXRxUm5iU2xMY0hURVp6WjJraGNOVjVlSQ==",
+                "idempotence-key": uuidv4(),
+              },
+              "data": {
+                "amount": {
+                  "value": "",
+                  "currency": "RUB"
+                },
+                  "confirmation": {
+                  "type": "embedded"
+                },
+                  "capture": true,
+                  "description": "Заказ №72"
+              }
+
+              // "last_name": this.second_name,
+              // "first_name": this.first_name,
+              // "city": this.city,
+              // "email": this.email_adress,
+              // "phone": this.phone_number,
+              // "program": this.$route.params.id
               
           })
           .then(response => { 
-              console.log(response.data);
-              this.second_name = '',
-              this.first_name = '',
-              this.city = '',
-              this.email_adress = '',
-              this.phone_number = '',
-              this.$route.params.id = ''
+              console.log(response);
+              // this.second_name = '',
+              // this.first_name = '',
+              // this.city = '',
+              // this.email_adress = '',
+              // this.phone_number = '',
+              // this.$route.params.id = ''
               // this.$router.push('/auth');
+
+              //window.location.href = "/auth/"+ this.$route.params.id;
           })
           .catch(error => {
               console.log(error.response);
               //this.errors.push('Не верный логин или пароль'); 
           });
-        // }
+
+
     }
   }
 }
@@ -257,13 +321,16 @@ export default {
 .modalWindow{
   background: linear-gradient(0deg, rgba(97, 139, 170, 0.44), rgba(97, 139, 170, 0.44)), #3D4A5B;
   font-family: Montserrat;
+  width: 520px;
 }
 .modal-header, .modal-body, .modal-footer{
   border: none;
 }
 .inputBlock{
   width: 220px;
-  margin-left: 10px;
+}
+.inputBlockLeft{
+  margin-left: 25px;
 }
 label{
   font-size: 15px;
@@ -280,6 +347,7 @@ label{
   color: #fff;
   border:#595C61;
   height: 25px;
+  width: 230px;
 }
 .submitButton{
   background: #495A67;
@@ -296,6 +364,22 @@ label{
 .facebook__container{
   background: #fff;
 }
+.cityLabel{
+  margin-bottom: 2px;
+}
+label{
+  margin-left: 5px;
+}
+#date{
+  width: 230px;
 
+}
+.date{
+  width: 225px;
+  margin-left: 10px;
+}
+#cityid{
+  width: 230px;
+}
 
 </style>

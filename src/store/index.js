@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 //let baseurl='https://api.centror.ru/';
 // let baseurl='http://localhost:1337/'
-let baseurl='http://45.136.247.192:1488/'
+ let baseurl='http://45.136.247.192:1488/'
+//let baseurl='http://192.168.88.35:1337/'
 export default new Vuex.Store({
   state: {
     search: '',

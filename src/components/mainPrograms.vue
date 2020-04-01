@@ -60,7 +60,12 @@ export default {
     },
     getHashtags(){
       axios.get(this.url.HomeApiLink).then((response) => {
-          this.HomeContent = response.data[0].Constructor[3].favorited_subcategories;
+          for (let i = 0; i < response.data[0].Constructor.length; i++) {
+            if(response.data[0].Constructor[i]["__component"] === "block.favorited-subcategories"){
+                this.HomeContent = response.data[0].Constructor[i]["favorited_subcategories"]
+                break
+            }
+          }
       });
     },
     // vueSlickFuller(){

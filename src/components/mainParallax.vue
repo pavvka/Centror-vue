@@ -41,8 +41,12 @@ export default {
   methods:{
     getHashtags(){
       axios.get(this.url.HomeApiLink).then((response) => {
-          this.HomeContent = response.data[0].Constructor[2];
-          console.log(this.HomeContent)
+          for (let i = 0; i < response.data[0].Constructor.length; i++) {
+            if(response.data[0].Constructor[i]["__component"] === "block.parallax"){
+                this.HomeContent = response.data[0].Constructor[i]
+                break
+            }
+          }
       });
     },
   },
