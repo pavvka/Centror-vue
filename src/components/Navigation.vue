@@ -271,7 +271,7 @@ export default {
 
   .dropdown-menu{
     background: rgba(97, 139, 170, 0.7);
-    margin: 0;
+    margin-top: 9px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border: none;

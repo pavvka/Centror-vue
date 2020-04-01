@@ -4,7 +4,7 @@
       <vue-particles
       color="#dedede"
       class="back"
-      style="width: 100%; height: 50%;"
+      style="width: 100%; height: 95vh;"
       :particlesNumber="60"
       :particleOpacity="0.7"
       shapeType="circle"
@@ -23,7 +23,7 @@
       ></vue-particles>
     </div>
     <div class="container-fluid">
-      <div class="row firstContent">
+      <div class="row">
           <div class="col-md-1"></div>
           <div class="col-md-5">
             <div class="clock">
@@ -111,21 +111,18 @@ export default {
 
 }
 .content {
+  top: -120px;
   position: relative;
   height: 95vh;
 }
 .container-fluid {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 0;
 }
 .col-md-6, .col-md-5 {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.firstContent{
-  margin-top: 45vh;
 }
 .particles-js-canvas-el{
   position: fixed;
