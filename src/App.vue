@@ -64,7 +64,6 @@ export default {
 
     flex: 1 1 auto;
 
-    margin: 2rem 0;
     min-height: 70vh;
   }
   //Change navbar posit

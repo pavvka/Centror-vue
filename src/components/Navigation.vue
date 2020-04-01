@@ -1,5 +1,5 @@
 <template>
-<div style="nav-bar">
+<div class="nav-bar">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <router-link class="navbar-brand" to="/">{{navBrand}}</router-link>
     <button
@@ -63,15 +63,15 @@
         </div>
     </div>
   </nav>
-    <div id="div_searcher" class="seach_container scale-out-top closed">
+  <div id="div_searcher" class="seach_container scale-out-top closed">
       <input v-model="searchF" id="search_inDiv" type="text" class="form-control" placeholder="Поиск по сайту...">
       <button
             v-on:click="search__reload"
             class="search__image_incontainer">
           <img class="search__image" src="../images/Search_Icon.png" >
       </button>
-    </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -127,6 +127,10 @@ export default {
 </script>
 
 <style>
+.nav-bar {
+  z-index: 10;
+}
+
 .scale-out-top {
 	-webkit-animation: scale-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 	        animation: scale-out-top 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
@@ -209,26 +213,24 @@ export default {
 
 
 .seach_container{
-  position: relative;
   z-index: 1;
-  left:40px;
-  top: 78px;
+  margin-left: 40px;
+  margin-right: 40px;
   background: rgba(97, 139, 170, 0.78);
   border:#595C61;
   border-radius: 0px 0px 10px 10px;
-  height: 35px;
-  width: 290px;
+  max-width: 290px;
+  padding: 10px 5px;
+  
+  height: 50px;
 }
 .form-control{
-  position: relative;
-  top: 5px;
-  width: 240px;
-  left: 10px;
-  height: 25px;
   background: #4D677E;
   border-radius: 2px 0px 0px 2px;
   border-color:#4D677E;
   color: #000000;
+  
+  height: 30px;
 }
 .search__button{
   background: transparent;
@@ -239,19 +241,17 @@ export default {
   width: 20px;
 }
 .search__image_incontainer {
-  position: relative;
+  position: absolute;
   background: transparent;
   border: none !important;
   font-size:0;
-  left: 250px;
-  top:-25px;
+  right: 5px;
+  top:14px;
 }
 </style>
 
 <style lang="scss" scoped>
 .navbar {
-  width: 97%;
-  position: absolute;
   background: rgba(97, 139, 170, 0.78);
   font-size: 18px;
   margin: 8px;
@@ -260,6 +260,7 @@ export default {
   padding-bottom: 0;
   margin-left: 30px;
   margin-right: 30px;
+  margin-bottom: 0px;
 
   .navbar-brand {
     font-size: 35px;
@@ -269,7 +270,7 @@ export default {
   }
 
   .dropdown-menu{
-    background: rgba(97, 139, 170, 0.78);
+    background: rgba(97, 139, 170, 0.7);
     margin: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -291,6 +292,7 @@ export default {
     font-style: normal;
     font-weight: 300;
   }
+
   .instagram, .facebook{
     width: 25px;
   }
@@ -327,11 +329,7 @@ export default {
   .dropdown-menu:hover {
   display: block;
   }
-  @media (min-width: 991px) {
-    .navbar-brand {
-      margin-bottom: 8px;
-    }
-  }
+
   @media (max-width: 991px) {
     .languages{
       margin: 0;
